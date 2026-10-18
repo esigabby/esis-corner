@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esi's Journal | Conjure, Poetry & Reflections</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="antialiased text-white min-h-screen">
+    <canvas id="magic-canvas"></canvas>
+    
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 top-0 border-b border-green-900/30 bg-[#080a06]/70 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex flex-wrap justify-between items-center gap-4">
+            <a href="index.html" class="text-3xl magical-font font-bold text-white tracking-widest glow-text-gold">Esi's Corner</a>
+            <div class="hidden md:flex flex-wrap items-center space-x-2 text-sm uppercase tracking-widest font-semibold">
+                <a href="about.html" class="nav-item">About</a>
+                <a href="journal.html" class="nav-item text-yellow-400 font-bold">Journal</a>
+                <a href="resources.html" class="nav-item">PDFs & Resources</a>
+                <a href="apps.html" class="nav-item">Apps</a>
+                <a href="marketing.html" class="nav-item">Marketing</a>
+                <a href="index.html#shop" class="nav-item">Shop</a>
+                <a href="willow.html" class="nav-item">Willow</a>
+                <a href="index.html#booking" class="px-6 py-2 ml-4 rounded-full bg-gradient-to-r from-yellow-500 via-green-600 to-purple-600 text-white hover:shadow-[0_0_20px_rgba(251,191,36,0.6)] transition-all">Book Now</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="relative pt-32 pb-24 px-6 min-h-screen">
+        <div class="max-w-6xl mx-auto">
+            <!-- Header Header -->
+            <div class="text-center mb-16">
+                <div class="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-yellow-500/10 border border-yellow-500/30 text-yellow-400 text-xs uppercase tracking-widest font-bold mb-4">
+                    <span>🌻</span> <span>Sacred Archives & Poems</span>
+                </div>
+                <h1 class="text-5xl md:text-6xl magical-font font-bold mb-4 text-white glow-text-gold">Esi's Journal</h1>
+                <div class="w-24 h-1 bg-gradient-to-r from-yellow-500 via-green-500 to-purple-600 mx-auto rounded-full mb-6"></div>
+                <p class="text-lg text-gray-300 max-w-2xl mx-auto font-light leading-relaxed">
+                    A raw chronicle of poems, ancestral downloads, emotional alchemy, and lived survival from 2017 to the present day.
+                </p>
+
+                <!-- Interactive Search & Topic Filter Bar -->
+                <div class="mt-10 max-w-3xl mx-auto space-y-4">
+                    <!-- Search Input -->
+                    <div class="relative">
+                        <input id="journal-search-input" type="text" placeholder="Search entries, poems, keywords (e.g. consciousness, orchid, ancestors)..." class="w-full px-6 py-3.5 pl-12 rounded-full bg-black/60 border border-yellow-500/30 text-white placeholder-gray-400 focus:outline-none focus:border-yellow-400 focus:shadow-[0_0_20px_rgba(251,191,36,0.3)] transition-all text-sm">
+                        <span class="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400">🔍</span>
+                    </div>
+
+                    <!-- Category Pills -->
+                    <div class="flex flex-wrap justify-center gap-2 text-xs">
+                        <button class="journal-filter-btn filter-btn px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-gray-300 font-semibold active" data-filter="all">All (12)</button>
+                        <button class="journal-filter-btn filter-btn px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-gray-300 font-semibold" data-filter="spiritual">Spiritual & Vodou</button>
+                        <button class="journal-filter-btn filter-btn px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-gray-300 font-semibold" data-filter="healing">Inner Child & Grief</button>
+                        <button class="journal-filter-btn filter-btn px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-gray-300 font-semibold" data-filter="identity">Social Resistance</button>
+                        <button class="journal-filter-btn filter-btn px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-gray-300 font-semibold" data-filter="roots">Early Works (2017-2020)</button>
+                    </div>
+
+                    <div class="text-center text-xs text-yellow-400/80 font-medium">
+                        <span id="journal-count-display">Showing all 12 entries</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Complete 12 Journal Posts Grid -->
+            <div id="journal-grid" class="space-y-8">
+
+                <!-- Featured Post (Diary of a Mad Black Woman) -->
+                <article data-category="identity spiritual" class="magic-card card-gold group p-0 flex flex-col md:flex-row overflow-hidden border border-yellow-500/30">
+                    <div class="md:w-2/5 h-72 md:h-auto bg-[#0a0f08] border-r border-white/5 relative overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-br from-yellow-900/40 via-green-900/40 to-purple-900/40 mix-blend-overlay"></div>
+                        <img src="https://images.unsplash.com/photo-1516414447565-b14be0adf13e?q=80&w=1000&auto=format&fit=crop" class="w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-700" alt="Journal Art">
+                    </div>
+                    <div class="p-8 md:p-12 md:w-3/5 flex flex-col justify-center relative z-10 bg-[#080a06]/90">
+                        <div class="flex items-center justify-between mb-3 text-xs">
+                            <span class="text-yellow-400 font-bold uppercase tracking-widest">Featured Essay &bull; Feb 27, 2024</span>
+                            <span class="text-gray-400 flex items-center space-x-1"><span>❤️</span> <span>88+</span></span>
+                        </div>
+                        <h2 class="text-3xl magical-font font-bold text-white mb-4 group-hover:text-yellow-400 transition-colors">Diary of A Mad Black Woman</h2>
+                        <p class="text-gray-300 font-light leading-relaxed mb-4">
+                            "The feeling of double consciousness is draining. I would like to argue that black women have a triple consciousness. We see our fathers and brothers die, we see our mothers and sisters carrying their crosses along with the crosses of our fallen family..."
+                        </p>
+                        
+                        <!-- Inline Expandable Container -->
+                        <div id="inline-poem-diary" class="poem-full-text text-gray-300 text-sm font-light leading-relaxed my-3 p-4 rounded-xl bg-black/60 border border-yellow-500/20 space-y-3">
+                            <p>We are asked to be strong when we want to be soft. We are asked to lead when we want to rest. We are expected to swallow our rage so the room feels comfortable, while our spirits scream for justice and peace.</p>
+                            <p>In my Vodou practice, our anger is not useless—it is alchemical. It is the fire that cleanses, the salt that protects, and the voice of the Ancestors demanding that we no longer shrink. This diary is for every Black woman who has been told she is 'too much' when she is finally choosing herself.</p>
+                        </div>
+
+                        <div class="flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-white/10">
+                            <div class="flex items-center space-x-2">
+                                <button onclick="window.sanctuaryReader.openPoem('diary')" class="px-4 py-1.5 rounded-full bg-yellow-500/20 text-yellow-400 border border-yellow-500/40 text-xs font-bold hover:bg-yellow-500/30 transition-all flex items-center space-x-1">
+                                    <span>⚡ Sanctuary Reader</span>
+                                </button>
+                                <button id="toggle-btn-diary" onclick="toggleInlinePoem('diary')" class="px-3 py-1.5 rounded-full bg-white/5 text-gray-300 border border-white/15 text-xs font-medium hover:text-white transition-all">
+                                    <span>📖 Expand Essay</span> <span>&darr;</span>
+                                </button>
+                            </div>
+                            <a href="post-diary.html" class="inline-flex items-center text-yellow-400 font-semibold uppercase tracking-wider text-xs hover:text-yellow-300">
+                                <span>Reflections Page &rarr;</span>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    
+                    <!-- 1. Hide and Seek (2024) -->
+                    <article data-category="healing" class="magic-card card-green group flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-center text-xs mb-2">
+                                <span class="text-green-400 font-bold uppercase tracking-widest">Poetry &bull; Jul 22, 2024</span>
+                                <span class="text-gray-400">❤️ 54</span>
+                            </div>
+                            <h3 class="text-xl magical-font font-bold text-white mb-2 group-hover:text-green-400 transition-colors">Hide and Seek</h3>
+                            <p class="text-gray-400 text-sm font-light mb-3 italic">
+                                "Ready or not here I come / Finding the girl inside / I know you're in there..."
+                            </p>
+
+                            <!-- Inline Expandable Container -->
+                            <div id="inline-poem-hide-and-seek" class="poem-full-text text-gray-300 text-xs font-light italic leading-relaxed my-2 p-3.5 rounded-xl bg-black/60 border border-green-500/20 space-y-1 text-center">
+                                <p>An inner child poem:</p>
+                                <div class="w-8 h-0.5 bg-green-500/40 mx-auto my-2"></div>
+                                <p>Ready or not here I come</p>
+                                <p>Finding the girl inside</p>
+                                <p>I know you're in there</p>
+                                <p>I know you had to hide</p>
+                                <p>For fear of other people</p>
+                                <p>For fear of growing up</p>
+                                <p>No matter the storm, come out and be warm</p>
+                                <p>In this heart of mine</p>
+                                <p>I’ll show you the life that we made,</p>
+                                <p class="font-bold text-green-400">It’s fine.</p>
+                            </div>
+                        </div>
+
+                        <div class="pt-4 border-t border-white/10 flex flex-wrap justify-between items-center gap-2">
+                            <div class="flex items-center space-x-1.5">
+                                <button onclick="window.sanctuaryReader.openPoem('hide-and-seek')" class="px-3 py-1 rounded-full bg-green-500/20 text-green-400 border border-green-500/40 text-[11px] font-bold hover:bg-green-500/30">
+                                    ⚡ Read
+                                </button>
+                                <button id="toggle-btn-hide-and-seek" onclick="toggleInlinePoem('hide-and-seek')" class="px-2.5 py-1 rounded-full bg-white/5 text-gray-300 border border-white/15 text-[11px] hover:text-white">
+                                    📖 Expand &darr;
+                                </button>
+                            </div>
+                            <a href="post-hide-and-seek.html" class="text-green-400 text-xs font-semibold hover:text-green-300">Discuss &rarr;</a>
+                        </div>
+                    </article>
+
+                    <!-- 2. Am I Made To Be Loved (2024) -->
+                    <article data-category="healing spiritual" class="magic-card card-green group flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-center text-xs mb-2">
+                                <span class="text-green-400 font-bold uppercase tracking-widest">Poetry &bull; Feb 26, 2024</span>
+                                <span class="text-gray-400">❤️ 67</span>
+                            </div>
+                            <h3 class="text-xl magical-font font-bold text-white mb-2 group-hover:text-green-400 transition-colors">Am I Made To Be Loved?</h3>
+                            <p class="text-gray-400 text-sm font-light mb-3 italic">
+                                "Or was I fashioned just to carry the light for others while standing in the dark?..."
+                            </p>
+
+                            <!-- Inline Expandable Container -->
+                            <div id="inline-poem-loved" class="poem-full-text text-gray-300 text-xs font-light italic leading-relaxed my-2 p-3.5 rounded-xl bg-black/60 border border-green-500/20 space-y-2 text-center">
+                                <p>Am I made to be loved?</p>
+                                <div class="w-8 h-0.5 bg-green-500/40 mx-auto my-2"></div>
+                                <p>Or was I fashioned just to carry the light for others while standing in the dark?</p>
+                                <p>The ancestors whispered back:</p>
+                                <p>You were created from divine love itself.</p>
+                                <p>Before you seek it in another mortal vessel, remember the blood running in your veins is sacred royalty.</p>
+                                <p class="font-bold text-green-400">You are the love you've been waiting for.</p>
+                            </div>
+                        </div>
+
+                        <div class="pt-4 border-t border-white/10 flex flex-wrap justify-between items-center gap-2">
+                            <div class="flex items-center space-x-1.5">
+                                <button onclick="window.sanctuaryReader.openPoem('loved')" class="px-3 py-1 rounded-full bg-green-500/20 text-green-400 border border-green-500/40 text-[11px] font-bold hover:bg-green-500/30">
+                                    ⚡ Read
+                                </button>
+                                <button id="toggle-btn-loved" onclick="toggleInlinePoem('loved')" class="px-2.5 py-1 rounded-full bg-white/5 text-gray-300 border border-white/15 text-[11px] hover:text-white">
+                                    📖 Expand &darr;
+                                </button>
+                            </div>
+                            <a href="post-loved.html" class="text-green-400 text-xs font-semibold hover:text-green-300">Discuss &rarr;</a>
+                        </div>
+                    </article>
+
+                    <!-- 3. Morning (2024) -->
+                    <article data-category="healing spiritual" class="magic-card card-gold group flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-center text-xs mb-2">
+                                <span class="text-yellow-400 font-bold uppercase tracking-widest">Reflections &bull; Feb 25, 2024</span>
+                                <span class="text-gray-400">❤️ 39</span>
+                            </div>
+                            <h3 class="text-xl magical-font font-bold text-white mb-2 group-hover:text-yellow-400 transition-colors">Morning</h3>
+                            <p class="text-gray-400 text-sm font-light mb-3 italic">
+                                "I've never allowed myself to mourn. Today I realize: morning is not just dawn..."
+                            </p>
+
+                            <!-- Inline Expandable Container -->
+                            <div id="inline-poem-morning" class="poem-full-text text-gray-300 text-xs font-light italic leading-relaxed my-2 p-3.5 rounded-xl bg-black/60 border border-yellow-500/20 space-y-2 text-center">
+                                <p>I've never allowed myself to mourn.</p>
+                                <div class="w-8 h-0.5 bg-yellow-500/40 mx-auto my-2"></div>
+                                <p>Every sunrise asked for composure.</p>
+                                <p>Every morning demanded that I stand tall before I had gathered my broken pieces.</p>
+                                <p class="font-bold text-yellow-400">Today I realize: morning is not just dawn; it is the sacred space to mourn what was lost so new light can enter.</p>
+                            </div>
+                        </div>
+
+                        <div class="pt-4 border-t border-white/10 flex flex-wrap justify-between items-center gap-2">
+                            <div class="flex items-center space-x-1.5">
+                                <button onclick="window.sanctuaryReader.openPoem('morning')" class="px-3 py-1 rounded-full bg-yellow-500/20 text-yellow-400 border border-yellow-500/40 text-[11px] font-bold hover:bg-yellow-500/30">
+                                    ⚡ Read
+                                </button>
+                                <button id="toggle-btn-morning" onclick="toggleInlinePoem('morning')" class="px-2.5 py-1 rounded-full bg-white/5 text-gray-300 border border-white/15 text-[11px] hover:text-white">
+                                    📖 Expand &darr;
+                                </button>
+                            </div>
+                            <a href="post-morning.html" class="text-yellow-400 text-xs font-semibold hover:text-yellow-300">Discuss &rarr;</a>
+                        </div>
+                    </article>
+
+                    <!-- 4. A Random Thought About Death (2024) -->
+                    <article data-category="spiritual" class="magic-card card-purple group flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-center text-xs mb-2">
+                                <span class="text-purple-400 font-bold uppercase tracking-widest">Reflections &bull; Feb 24, 2024</span>
+                                <span class="text-gray-400">❤️ 42</span>
+                            </div>
+                            <h3 class="text-xl magical-font font-bold text-white mb-2 group-hover:text-purple-400 transition-colors">A Random Thought About Death</h3>
+                            <p class="text-gray-400 text-sm font-light mb-3 italic">
+                                "A thought wrote down before I knew the Barons. We are merely walking each other back..."
+                            </p>
+
+                            <!-- Inline Expandable Container -->
+                            <div id="inline-poem-death" class="poem-full-text text-gray-300 text-xs font-light italic leading-relaxed my-2 p-3.5 rounded-xl bg-black/60 border border-purple-500/20 space-y-2 text-center">
+                                <p>A thought wrote down before I knew the Barons.</p>
+                                <div class="w-8 h-0.5 bg-purple-500/40 mx-auto my-2"></div>
+                                <p>Death is not an ending, it is the sacred return.</p>
+                                <p>Before I knew Baron Samedi, before I poured rum at the crossroads, I knew the spirit does not decay with the flesh.</p>
+                                <p>We are merely walking each other back to the ancestral fire.</p>
+                                <p class="font-bold text-purple-400">When the breath leaves, the memory blossoms.</p>
+                            </div>
+                        </div>
+
+                        <div class="pt-4 border-t border-white/10 flex flex-wrap justify-between items-center gap-2">
+                            <div class="flex items-center space-x-1.5">
+                                <button onclick="window.sanctuaryReader.openPoem('death')" class="px-3 py-1 rounded-full bg-purple-500/20 text-purple-400 border border-purple-500/40 text-[11px] font-bold hover:bg-purple-500/30">
+                                    ⚡ Read
+                                </button>
+                                <button id="toggle-btn-death" onclick="toggleInlinePoem('death')" class="px-2.5 py-1 rounded-full bg-white/5 text-gray-300 border border-white/15 text-[11px] hover:text-white">
+                                    📖 Expand &darr;
+                                </button>
+                            </div>
+                            <a href="post-death.html" class="text-purple-400 text-xs font-semibold hover:text-purple-300">Discuss &rarr;</a>
+                        </div>
+                    </article>
+
+                    <!-- 5. Sick Irony (2021) -->
+                    <article data-category="roots healing" class="magic-card card-gold group flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-center text-xs mb-2">
+                                <span class="text-yellow-400 font-bold uppercase tracking-widest">Poetry &bull; Sept 2, 2021</span>
+                                <span class="text-gray-400">❤️ 73</span>
+                            </div>
+                            <h3 class="text-xl magical-font font-bold text-white mb-2 group-hover:text-yellow-400 transition-colors">Sick Irony</h3>
+                            <p class="text-gray-400 text-sm font-light mb-3 italic">
+                                "'I miss the person you used to be.' Who is she? That girl with the carefree smile..."
+                            </p>
+
+                            <!-- Inline Expandable Container -->
+                            <div id="inline-poem-sick-irony" class="poem-full-text text-gray-300 text-xs font-light italic leading-relaxed my-2 p-3.5 rounded-xl bg-black/60 border border-yellow-500/20 space-y-1.5 text-center">
+                                <p>"I miss the person you used to be."</p>
+                                <div class="w-8 h-0.5 bg-yellow-500/40 mx-auto my-2"></div>
+                                <p>Who is she?</p>
+                                <p>That girl with the carefree smile and the light in her eyes</p>
+                                <p>That girl who still did not know just how cruel the world could be</p>
+                                <p>It seems as though the author of my book awarded me with character development with the harsh thematic lessons.</p>
+                                <p>Oh to be carefree in a world that is careless</p>
+                                <p>Oh to be her again</p>
+                                <p>Where do I even start?</p>
+                                <p>I guess this is where I begin.</p>
+                                <p>She is the missing part of me that I have been filling with you.</p>
+                                <p>And now the only way to get back to you is to find her.</p>
+                                <p>The sick irony that the author of my life has played on me.</p>
+                                <p class="font-bold text-yellow-400">Trying to find yet again the carefree girl that once was me.</p>
+                            </div>
+                        </div>
+
+                        <div class="pt-4 border-t border-white/10 flex flex-wrap justify-between items-center gap-2">
+                            <div class="flex items-center space-x-1.5">
+                                <button onclick="window.sanctuaryReader.openPoem('sick-irony')" class="px-3 py-1 rounded-full bg-yellow-500/20 text-yellow-400 border border-yellow-500/40 text-[11px] font-bold hover:bg-yellow-500/30">
+                                    ⚡ Read
+                                </button>
+                                <button id="toggle-btn-sick-irony" onclick="toggleInlinePoem('sick-irony')" class="px-2.5 py-1 rounded-full bg-white/5 text-gray-300 border border-white/15 text-[11px] hover:text-white">
+                                    📖 Expand &darr;
+                                </button>
+                            </div>
+                            <a href="post-sick-irony.html" class="text-yellow-400 text-xs font-semibold hover:text-yellow-300">Discuss &rarr;</a>
+                        </div>
+                    </article>
+
+                    <!-- 6. August 26 (2020) -->
+                    <article data-category="roots healing" class="magic-card card-gold group flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-center text-xs mb-2">
+                                <span class="text-yellow-400 font-bold uppercase tracking-widest">Poetry &bull; Aug 26, 2020</span>
+                                <span class="text-gray-400">❤️ 49</span>
+                            </div>
+                            <h3 class="text-xl magical-font font-bold text-white mb-2 group-hover:text-yellow-400 transition-colors">August 26</h3>
+                            <p class="text-gray-400 text-sm font-light mb-3 italic">
+                                "On the eve of yet another year more of existence, I am not sure of who I am..."
+                            </p>
+
+                            <!-- Inline Expandable Container -->
+                            <div id="inline-poem-august-26" class="poem-full-text text-gray-300 text-xs font-light italic leading-relaxed my-2 p-3.5 rounded-xl bg-black/60 border border-yellow-500/20 space-y-1.5 text-center">
+                                <p>On the eve of yet another year more of existence,</p>
+                                <div class="w-8 h-0.5 bg-yellow-500/40 mx-auto my-2"></div>
+                                <p>I am not sure of who I am or who I want to be anymore.</p>
+                                <p>The person I was a year ago,</p>
+                                <p>Is no longer recognized.</p>
+                                <p>The raven created by Poe would adorn me with the same thing it adorned his love:</p>
+                                <p class="font-bold text-yellow-400">Nevermore.</p>
+                            </div>
+                        </div>
+
+                        <div class="pt-4 border-t border-white/10 flex flex-wrap justify-between items-center gap-2">
+                            <div class="flex items-center space-x-1.5">
+                                <button onclick="window.sanctuaryReader.openPoem('august-26')" class="px-3 py-1 rounded-full bg-yellow-500/20 text-yellow-400 border border-yellow-500/40 text-[11px] font-bold hover:bg-yellow-500/30">
+                                    ⚡ Read
+                                </button>
+                                <button id="toggle-btn-august-26" onclick="toggleInlinePoem('august-26')" class="px-2.5 py-1 rounded-full bg-white/5 text-gray-300 border border-white/15 text-[11px] hover:text-white">
+                                    📖 Expand &darr;
+                                </button>
+                            </div>
+                            <a href="post-august-26.html" class="text-yellow-400 text-xs font-semibold hover:text-yellow-300">Discuss &rarr;</a>
+                        </div>
+                    </article>
+
+                    <!-- 7. Polarity (2020) -->
+                    <article data-category="roots" class="magic-card card-purple group flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-center text-xs mb-2">
+                                <span class="text-purple-400 font-bold uppercase tracking-widest">Poetry &bull; Jun 9, 2020</span>
+                                <span class="text-gray-400">❤️ 61</span>
+                            </div>
+                            <h3 class="text-xl magical-font font-bold text-white mb-2 group-hover:text-purple-400 transition-colors">Polarity</h3>
+                            <p class="text-gray-400 text-sm font-light mb-3 italic">
+                                "You speak in mysteries and riddles, but I always crack the code..."
+                            </p>
+
+                            <!-- Inline Expandable Container -->
+                            <div id="inline-poem-polarity" class="poem-full-text text-gray-300 text-xs font-light italic leading-relaxed my-2 p-3.5 rounded-xl bg-black/60 border border-purple-500/20 space-y-1.5 text-center">
+                                <p>You speak in mysteries and riddles,</p>
+                                <p>But I always crack the code.</p>
+                                <p>You try to push me away,</p>
+                                <p>But I can brace the cold.</p>
+                                <p>Let me warm that cold shoulder with my embrace.</p>
+                                <p>I am attracted to your soul.</p>
+                                <p>It's so strong and beautiful.</p>
+                                <p>A strong man mentality means mental health fragility.</p>
+                                <p>You need someone in your corner so let me stand by your side.</p>
+                                <p>Yes, I know you and I are opposites.</p>
+                                <p>Polar opposites even</p>
+                                <p class="font-bold text-purple-400">But love that's why we are so attracted to each other.</p>
+                            </div>
+                        </div>
+
+                        <div class="pt-4 border-t border-white/10 flex flex-wrap justify-between items-center gap-2">
+                            <div class="flex items-center space-x-1.5">
+                                <button onclick="window.sanctuaryReader.openPoem('polarity')" class="px-3 py-1 rounded-full bg-purple-500/20 text-purple-400 border border-purple-500/40 text-[11px] font-bold hover:bg-purple-500/30">
+                                    ⚡ Read
+                                </button>
+                                <button id="toggle-btn-polarity" onclick="toggleInlinePoem('polarity')" class="px-2.5 py-1 rounded-full bg-white/5 text-gray-300 border border-white/15 text-[11px] hover:text-white">
+                                    📖 Expand &darr;
+                                </button>
+                            </div>
+                            <a href="post-polarity.html" class="text-purple-400 text-xs font-semibold hover:text-purple-300">Discuss &rarr;</a>
+                        </div>
+                    </article>
+
+                    <!-- 8. Last One For You (2019) -->
+                    <article data-category="roots healing" class="magic-card card-gold group flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-center text-xs mb-2">
+                                <span class="text-yellow-400 font-bold uppercase tracking-widest">Poetry &bull; Feb 23, 2019</span>
+                                <span class="text-gray-400">❤️ 58</span>
+                            </div>
+                            <h3 class="text-xl magical-font font-bold text-white mb-2 group-hover:text-yellow-400 transition-colors">Last One For You</h3>
+                            <p class="text-gray-400 text-sm font-light mb-3 italic">
+                                "I love you, I do. But I think I love the man I created in my mind, not the actual you..."
+                            </p>
+
+                            <!-- Inline Expandable Container -->
+                            <div id="inline-poem-last-one" class="poem-full-text text-gray-300 text-xs font-light italic leading-relaxed my-2 p-3.5 rounded-xl bg-black/60 border border-yellow-500/20 space-y-1.5 text-center">
+                                <p>I love you / I do</p>
+                                <p>But I think I love the man I created in my mind</p>
+                                <p>Not the actual You</p>
+                                <p>You words built a prison around my mind</p>
+                                <p>Scared to live the life I want in fear that the guy I wanted would leave me</p>
+                                <p>That bracelet showed me everything that was wrong with our relationship</p>
+                                <p>Beautiful on the outside / Ugly on the inside</p>
+                                <p>Thank you for showing me what I don't want in a man</p>
+                                <p class="font-bold text-yellow-400">And thank you for setting me free.</p>
+                            </div>
+                        </div>
+
+                        <div class="pt-4 border-t border-white/10 flex flex-wrap justify-between items-center gap-2">
+                            <div class="flex items-center space-x-1.5">
+                                <button onclick="window.sanctuaryReader.openPoem('last-one')" class="px-3 py-1 rounded-full bg-yellow-500/20 text-yellow-400 border border-yellow-500/40 text-[11px] font-bold hover:bg-yellow-500/30">
+                                    ⚡ Read
+                                </button>
+                                <button id="toggle-btn-last-one" onclick="toggleInlinePoem('last-one')" class="px-2.5 py-1 rounded-full bg-white/5 text-gray-300 border border-white/15 text-[11px] hover:text-white">
+                                    📖 Expand &darr;
+                                </button>
+                            </div>
+                            <a href="post-last-one.html" class="text-yellow-400 text-xs font-semibold hover:text-yellow-300">Discuss &rarr;</a>
+                        </div>
+                    </article>
+
+                    <!-- 9. Tense (2019) -->
+                    <article data-category="roots healing" class="magic-card card-purple group flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-center text-xs mb-2">
+                                <span class="text-purple-400 font-bold uppercase tracking-widest">Poetry &bull; Feb 13, 2019</span>
+                                <span class="text-gray-400">❤️ 52</span>
+                            </div>
+                            <h3 class="text-xl magical-font font-bold text-white mb-2 group-hover:text-purple-400 transition-colors">Tense</h3>
+                            <p class="text-gray-400 text-sm font-light mb-3 italic">
+                                "'I love you more'... Because you said you used to love me (Past tense), But I still love you..."
+                            </p>
+
+                            <!-- Inline Expandable Container -->
+                            <div id="inline-poem-tense" class="poem-full-text text-gray-300 text-xs font-light italic leading-relaxed my-2 p-3.5 rounded-xl bg-black/60 border border-purple-500/20 space-y-1.5 text-center">
+                                <p>"I love you more"</p>
+                                <div class="w-8 h-0.5 bg-purple-500/40 mx-auto my-2"></div>
+                                <p>It has to be true / It was never a debate I always knew</p>
+                                <p>Always and forever turns into "Nevermore"</p>
+                                <p>Because you said you used to love me (Past tense),</p>
+                                <p>But I still love you and love you more (Present tense),</p>
+                                <p class="font-bold text-purple-400">But sadly this relationship is Nevermore (Future tense).</p>
+                            </div>
+                        </div>
+
+                        <div class="pt-4 border-t border-white/10 flex flex-wrap justify-between items-center gap-2">
+                            <div class="flex items-center space-x-1.5">
+                                <button onclick="window.sanctuaryReader.openPoem('tense')" class="px-3 py-1 rounded-full bg-purple-500/20 text-purple-400 border border-purple-500/40 text-[11px] font-bold hover:bg-purple-500/30">
+                                    ⚡ Read
+                                </button>
+                                <button id="toggle-btn-tense" onclick="toggleInlinePoem('tense')" class="px-2.5 py-1 rounded-full bg-white/5 text-gray-300 border border-white/15 text-[11px] hover:text-white">
+                                    📖 Expand &darr;
+                                </button>
+                            </div>
+                            <a href="post-tense.html" class="text-purple-400 text-xs font-semibold hover:text-purple-300">Discuss &rarr;</a>
+                        </div>
+                    </article>
+
+                    <!-- 10. Broken Pot (2018) -->
+                    <article data-category="roots" class="magic-card card-green group flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-center text-xs mb-2">
+                                <span class="text-green-400 font-bold uppercase tracking-widest">Poetry &bull; Jul 20, 2018</span>
+                                <span class="text-gray-400">❤️ 45</span>
+                            </div>
+                            <h3 class="text-xl magical-font font-bold text-white mb-2 group-hover:text-green-400 transition-colors">Broken Pot</h3>
+                            <p class="text-gray-400 text-sm font-light mb-3 italic">
+                                "Trust is not something easily found... It is something that grows like an orchid on the ground..."
+                            </p>
+
+                            <!-- Inline Expandable Container -->
+                            <div id="inline-poem-broken-pot" class="poem-full-text text-gray-300 text-xs font-light italic leading-relaxed my-2 p-3.5 rounded-xl bg-black/60 border border-green-500/20 space-y-1.5 text-center">
+                                <p>Trust is not something easily found</p>
+                                <p>It is something that grows like an orchid on the ground</p>
+                                <p>You and me grew the orchid from infancy</p>
+                                <p>The whispers of the jealous blew too rough</p>
+                                <p>The over exposure of hatred wilted our leaves</p>
+                                <p>And finally rudeness of earth killed us, the orchid, and the trust.</p>
+                                <p class="font-bold text-green-400">Now we are just a broken pot sitting in the dust.</p>
+                            </div>
+                        </div>
+
+                        <div class="pt-4 border-t border-white/10 flex flex-wrap justify-between items-center gap-2">
+                            <div class="flex items-center space-x-1.5">
+                                <button onclick="window.sanctuaryReader.openPoem('broken-pot')" class="px-3 py-1 rounded-full bg-green-500/20 text-green-400 border border-green-500/40 text-[11px] font-bold hover:bg-green-500/30">
+                                    ⚡ Read
+                                </button>
+                                <button id="toggle-btn-broken-pot" onclick="toggleInlinePoem('broken-pot')" class="px-2.5 py-1 rounded-full bg-white/5 text-gray-300 border border-white/15 text-[11px] hover:text-white">
+                                    📖 Expand &darr;
+                                </button>
+                            </div>
+                            <a href="post-broken-pot.html" class="text-green-400 text-xs font-semibold hover:text-green-300">Discuss &rarr;</a>
+                        </div>
+                    </article>
+
+                    <!-- 11. Purple Emotions (2017) -->
+                    <article data-category="roots" class="magic-card card-purple group flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-center text-xs mb-2">
+                                <span class="text-purple-400 font-bold uppercase tracking-widest">Poetry &bull; Sept 17, 2017</span>
+                                <span class="text-gray-400">❤️ 81</span>
+                            </div>
+                            <h3 class="text-xl magical-font font-bold text-white mb-2 group-hover:text-purple-400 transition-colors">Purple Emotions</h3>
+                            <p class="text-gray-400 text-sm font-light mb-3 italic">
+                                "Shades of blue, that's what I was before I met you. Shades of blue turn to red..."
+                            </p>
+
+                            <!-- Inline Expandable Container -->
+                            <div id="inline-poem-purple-emotions" class="poem-full-text text-gray-300 text-xs font-light italic leading-relaxed my-2 p-3.5 rounded-xl bg-black/60 border border-purple-500/20 space-y-1.5 text-center">
+                                <p>Shades of blue / That's what I was before I met you</p>
+                                <p>The colors of those ocean eyes / The love in your eyes made me smile wide</p>
+                                <p>The rain on that wretched day / When they took my love away</p>
+                                <p>How I felt after I left you / After I saw how I hurt you</p>
+                                <p>Shades of blue turns to red...</p>
+                                <p class="font-bold text-purple-400">The love that flowed in my heart instead flows out in a sea of red.</p>
+                            </div>
+                        </div>
+
+                        <div class="pt-4 border-t border-white/10 flex flex-wrap justify-between items-center gap-2">
+                            <div class="flex items-center space-x-1.5">
+                                <button onclick="window.sanctuaryReader.openPoem('purple-emotions')" class="px-3 py-1 rounded-full bg-purple-500/20 text-purple-400 border border-purple-500/40 text-[11px] font-bold hover:bg-purple-500/30">
+                                    ⚡ Read
+                                </button>
+                                <button id="toggle-btn-purple-emotions" onclick="toggleInlinePoem('purple-emotions')" class="px-2.5 py-1 rounded-full bg-white/5 text-gray-300 border border-white/15 text-[11px] hover:text-white">
+                                    📖 Expand &darr;
+                                </button>
+                            </div>
+                            <a href="post-purple-emotions.html" class="text-purple-400 text-xs font-semibold hover:text-purple-300">Discuss &rarr;</a>
+                        </div>
+                    </article>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <footer class="py-12 border-t border-green-900/30 bg-[#080a06] text-center relative z-10">
+        <p class="text-gray-500 text-sm magical-font">&copy; 2024 - 2026 Esi's Corner. Conjured with light.</p>
+    </footer>
+
+    <script src="js/particles.js"></script>
+    <script src="js/interactions.js"></script>
+</body>
+</html>

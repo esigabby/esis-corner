@@ -1,0 +1,270 @@
+body {
+    margin: 0;
+    overflow-x: hidden;
+    background-color: #080a06; /* Dark earthy tone */
+    color: #e6e3c8;
+    font-family: 'Raleway', sans-serif;
+}
+
+h1, h2, h3, .magical-font {
+    font-family: 'Cinzel', serif;
+}
+
+/* Magical Background Canvas */
+#magic-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    background: radial-gradient(circle at center, #10150a 0%, #080a06 100%);
+}
+
+/* Glowing text effects */
+.glow-text-gold { text-shadow: 0 0 10px rgba(251, 191, 36, 0.8), 0 0 20px rgba(251, 191, 36, 0.4); }
+.glow-text-green { text-shadow: 0 0 10px rgba(16, 185, 129, 0.8), 0 0 20px rgba(16, 185, 129, 0.4); }
+.glow-text-purple { text-shadow: 0 0 10px rgba(168, 85, 247, 0.8), 0 0 20px rgba(168, 85, 247, 0.4); }
+
+/* Magical Glowing Card Base */
+.magic-card {
+    position: relative;
+    background: rgba(10, 15, 10, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 16px;
+    padding: 24px;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+}
+
+.magic-card::before {
+    content: '';
+    position: absolute;
+    top: -50%; left: -50%;
+    width: 200%; height: 200%;
+    animation: rotate 4s linear infinite;
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: 0;
+}
+
+.magic-card::after {
+    content: '';
+    position: absolute;
+    inset: 2px;
+    background: rgba(10, 15, 10, 0.9);
+    border-radius: 14px;
+    z-index: 1;
+}
+
+.magic-card:hover {
+    transform: translateY(-10px) scale(1.02);
+}
+.magic-card:hover::before { opacity: 1; }
+.magic-card > * { position: relative; z-index: 2; }
+
+/* Color Variations for Cards */
+.card-gold:hover { box-shadow: 0 15px 35px rgba(251, 191, 36, 0.2); border-color: rgba(251, 191, 36, 0.3); }
+.card-gold::before { background: conic-gradient(transparent, transparent, transparent, #fbbf24); }
+
+.card-green:hover { box-shadow: 0 15px 35px rgba(16, 185, 129, 0.2); border-color: rgba(16, 185, 129, 0.3); }
+.card-green::before { background: conic-gradient(transparent, transparent, transparent, #10b981); }
+
+.card-purple:hover { box-shadow: 0 15px 35px rgba(168, 85, 247, 0.2); border-color: rgba(168, 85, 247, 0.3); }
+.card-purple::before { background: conic-gradient(transparent, transparent, transparent, #a855f7); }
+
+@keyframes rotate { 100% { transform: rotate(360deg); } }
+
+/* Navigation */
+.nav-item {
+    position: relative;
+    padding: 8px 16px;
+    color: #d1d5db;
+    transition: all 0.3s;
+}
+.nav-item:hover { color: #fbbf24; text-shadow: 0 0 8px rgba(251, 191, 36, 0.6); }
+
+/* Floating Animation */
+.float { animation: float 6s ease-in-out infinite; }
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0px); }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #080a06; }
+::-webkit-scrollbar-thumb { background: #1a2e15; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #eab308; }
+
+/* Skull Easter Egg Animations */
+.skull-icon {
+    display: inline-block;
+    height: 0.85em;
+    width: 0.85em;
+    object-fit: contain;
+    vertical-align: middle;
+    margin: 0 4px;
+    transform: translateY(-4px);
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    filter: drop-shadow(0 0 12px rgba(251, 191, 36, 0.85));
+}
+
+.skull-icon.purple-skull {
+    filter: drop-shadow(0 0 12px rgba(168, 85, 247, 0.85));
+}
+
+.skull-icon:hover {
+    transform: translateY(-8px) scale(1.25) rotate(10deg);
+    filter: drop-shadow(0 0 22px rgba(251, 191, 36, 1)) drop-shadow(0 0 35px rgba(16, 185, 129, 0.9));
+}
+
+.skull-icon.purple-skull:hover {
+    transform: translateY(-8px) scale(1.25) rotate(-10deg);
+    filter: drop-shadow(0 0 22px rgba(168, 85, 247, 1)) drop-shadow(0 0 35px rgba(251, 191, 36, 0.9));
+}
+
+.skull-activated {
+    animation: skullBurst 1s ease-out forwards;
+}
+
+@keyframes skullBurst {
+    0% { transform: translateY(-4px) scale(1); }
+    30% { transform: translateY(-16px) scale(1.4) rotate(360deg); }
+    60% { transform: translateY(-8px) scale(1.2) rotate(720deg); }
+    100% { transform: translateY(-4px) scale(1) rotate(720deg); }
+}
+
+/* Floating Magic Sparkles for Easter Egg */
+.magic-sparkle {
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    font-size: 24px;
+    animation: floatUpFade 1.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+@keyframes floatUpFade {
+    0% {
+        opacity: 1;
+        transform: translate(0, 0) scale(0.6) rotate(0deg);
+    }
+    50% {
+        opacity: 0.9;
+        transform: translate(var(--tx), -60px) scale(1.3) rotate(180deg);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(var(--tx), -140px) scale(0.2) rotate(360deg);
+    }
+}
+
+/* Booking Feature Pill */
+.booking-pill {
+    background: rgba(16, 24, 12, 0.7);
+    border: 1px solid rgba(251, 191, 36, 0.25);
+    backdrop-filter: blur(8px);
+    transition: all 0.3s ease;
+}
+.booking-pill:hover {
+    border-color: rgba(251, 191, 36, 0.7);
+    box-shadow: 0 0 15px rgba(251, 191, 36, 0.3);
+    transform: translateY(-2px);
+}
+
+::-webkit-scrollbar-thumb { background: #10b981; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #fbbf24; }
+
+/* Breathing Circle Visualizer for Solfeggio Meditation */
+.breathing-circle {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(251,191,36,0.3) 0%, rgba(16,185,129,0.15) 60%, transparent 100%);
+    border: 2px solid rgba(251,191,36,0.5);
+    box-shadow: 0 0 30px rgba(251,191,36,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    animation: breathe 8s ease-in-out infinite;
+}
+
+@keyframes breathe {
+    0%, 100% { transform: scale(0.85); border-color: rgba(251,191,36,0.4); box-shadow: 0 0 20px rgba(251,191,36,0.2); }
+    50% { transform: scale(1.25); border-color: rgba(16,185,129,0.8); box-shadow: 0 0 45px rgba(16,185,129,0.5); }
+}
+
+/* Sound Wave Bars */
+.sound-wave-bar {
+    width: 3px;
+    height: 16px;
+    background-color: #fbbf24;
+    border-radius: 2px;
+    animation: soundPulse 1.2s ease-in-out infinite alternate;
+}
+.sound-wave-bar:nth-child(2) { animation-delay: 0.2s; height: 24px; background-color: #10b981; }
+.sound-wave-bar:nth-child(3) { animation-delay: 0.4s; height: 12px; background-color: #a855f7; }
+.sound-wave-bar:nth-child(4) { animation-delay: 0.1s; height: 20px; background-color: #fbbf24; }
+
+@keyframes soundPulse {
+    0% { transform: scaleY(0.3); opacity: 0.5; }
+    100% { transform: scaleY(1.3); opacity: 1; }
+}
+
+/* Filter Badges */
+.filter-btn {
+    transition: all 0.25s ease;
+}
+.filter-btn.active {
+    background: linear-gradient(135deg, rgba(251,191,36,0.25), rgba(16,185,129,0.25));
+    border-color: #fbbf24;
+    color: #fbbf24;
+    box-shadow: 0 0 15px rgba(251,191,36,0.3);
+}
+
+/* Mobile Nav Drawer */
+#mobile-drawer {
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+#mobile-drawer.open {
+    transform: translateX(0);
+}
+#mobile-drawer.closed {
+    transform: translateX(100%);
+}
+
+/* Cart Drawer */
+#cart-drawer {
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+#cart-drawer.open {
+    transform: translateX(0);
+}
+#cart-drawer.closed {
+    transform: translateX(100%);
+}
+
+/* Poem Inline Accordion Animation */
+.poem-full-text {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease;
+    opacity: 0;
+}
+.poem-full-text.expanded {
+    max-height: 1200px;
+    opacity: 1;
+}
+
+/* Reading Atmosphere Modes */
+.reader-theme-midnight { background-color: #060805 !important; border-color: rgba(255,255,255,0.15) !important; }
+.reader-theme-emerald { background-color: #05130a !important; border-color: rgba(16,185,129,0.4) !important; }
+.reader-theme-violet { background-color: #0f0717 !important; border-color: rgba(168,85,247,0.4) !important; }
+.reader-theme-gold { background-color: #140f06 !important; border-color: rgba(251,191,36,0.4) !important; }
+

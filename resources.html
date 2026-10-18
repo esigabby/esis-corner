@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free PDFs & Resources | Esi's Corner</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="antialiased text-white min-h-screen relative">
+    <canvas id="magic-canvas"></canvas>
+    
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 top-0 border-b border-green-900/30 bg-[#080a06]/70 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex flex-wrap justify-between items-center gap-4">
+            <a href="index.html" class="text-3xl magical-font font-bold text-white tracking-widest glow-text-gold">Esi's Corner</a>
+            <div class="hidden md:flex flex-wrap items-center space-x-2 text-sm uppercase tracking-widest font-semibold">
+                <a href="about.html" class="nav-item">About</a>
+                <a href="journal.html" class="nav-item">Journal</a>
+                <a href="resources.html" class="nav-item text-green-400 font-bold">PDFs & Resources</a>
+                <a href="apps.html" class="nav-item">Apps</a>
+                <a href="marketing.html" class="nav-item">Marketing</a>
+                <a href="index.html#shop" class="nav-item">Shop</a>
+                <a href="willow.html" class="nav-item">Willow</a>
+                <a href="index.html#booking" class="px-6 py-2 ml-4 rounded-full bg-gradient-to-r from-yellow-500 via-green-600 to-purple-600 text-white hover:shadow-[0_0_20px_rgba(251,191,36,0.6)] transition-all">Book Now</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="relative pt-36 pb-24 px-6 min-h-screen">
+        <div class="max-w-7xl mx-auto">
+            <!-- Header -->
+            <div class="text-center mb-16">
+                <div class="inline-flex items-center justify-center space-x-3 mb-4">
+                    <span class="h-px w-12 bg-gradient-to-r from-transparent to-green-500"></span>
+                    <span class="text-xs font-bold tracking-widest text-green-400 uppercase">Knowledge Sanctuary</span>
+                    <span class="h-px w-12 bg-gradient-to-l from-transparent to-green-500"></span>
+                </div>
+                <h1 class="text-5xl md:text-6xl magical-font font-bold mb-4 text-white glow-text-green">Free PDFs & Sacred Resources</h1>
+                <div class="w-28 h-1 bg-gradient-to-r from-yellow-500 via-green-500 to-purple-600 mx-auto rounded-full mb-6"></div>
+                <p class="text-lg text-gray-300 max-w-2xl mx-auto font-light leading-relaxed">
+                    Explore our curated collection of free spiritual texts, Hoodoo & Vodou archives, trauma recovery books, mental health directories, and community support.
+                </p>
+            </div>
+
+            <!-- Section 1: Anonymous Prayer Request Banner -->
+            <div class="mb-20 p-8 md:p-12 rounded-3xl bg-gradient-to-r from-yellow-950/40 via-green-950/40 to-purple-950/40 border border-yellow-500/40 shadow-[0_0_35px_rgba(251,191,36,0.15)] relative overflow-hidden">
+                <div class="max-w-3xl mx-auto text-center relative z-10">
+                    <div class="w-16 h-16 rounded-full bg-yellow-500/20 border border-yellow-500/40 flex items-center justify-center text-yellow-400 mx-auto mb-6">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+                    </div>
+                    <span class="text-xs uppercase tracking-widest text-yellow-400 font-bold block mb-2">Sacred Intercession</span>
+                    <h2 class="text-3xl md:text-4xl magical-font font-bold text-white mb-4 glow-text-gold">Anonymous Prayer Requests</h2>
+                    <p class="text-gray-300 text-base md:text-lg mb-8 leading-relaxed font-light">
+                        This is an anonymous sanctuary form for those in need of spiritual support. Request whatever you need from spirit. I read these every day and pray to Spirit and the Holy Ghost on behalf of you all. Happy Healing! 🕊️
+                    </p>
+                    <a href="https://www.surveymonkey.com/r/P5XVFG8" target="_blank" class="inline-flex items-center space-x-3 px-10 py-4 rounded-full bg-gradient-to-r from-yellow-500 via-green-600 to-purple-600 text-white font-bold text-base hover:scale-105 transition-all shadow-[0_0_20px_rgba(251,191,36,0.5)]">
+                        <span>Submit Anonymous Prayer Request</span>
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Section 2: Spiritual PDFs Library -->
+            <div id="section-spiritual-pdfs" class="mb-20">
+                <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 pb-4 border-b border-white/10">
+                    <div>
+                        <span class="text-xs uppercase tracking-widest text-green-400 font-bold block mb-1">Ancestral & Cultural Archive</span>
+                        <h2 class="text-3xl md:text-4xl magical-font font-bold text-white">Spiritual & Conjure PDFs</h2>
+                    </div>
+                    <p class="text-sm text-gray-400 mt-2 md:mt-0">Click any book to download or view the PDF directly</p>
+                </div>
+
+                <!-- Interactive Search & Category Filter Bar -->
+                <div class="mb-10 p-6 rounded-2xl bg-[#0a0f08] border border-green-500/30 shadow-[0_0_25px_rgba(16,185,129,0.1)]">
+                    <div class="flex flex-col md:flex-row gap-4 items-stretch md:items-center justify-between mb-5">
+                        <div class="relative flex-grow max-w-xl">
+                            <span class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-green-400">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+                            </span>
+                            <input type="text" id="resource-search-input" placeholder="Search resources, topics, authors (e.g. Hoodoo, Vodou, Altar, Trauma)..." class="w-full pl-12 pr-10 py-3 rounded-full bg-black/60 border border-white/20 text-white placeholder-gray-400 text-sm focus:outline-none focus:border-green-400 focus:ring-1 focus:ring-green-400 transition-all">
+                            <button id="clear-resource-search" class="absolute inset-y-0 right-0 pr-4 flex items-center text-gray-400 hover:text-white hidden" title="Clear search">✕</button>
+                        </div>
+                        <div id="resource-count-badge" class="text-xs text-gray-300 font-semibold px-4 py-2 rounded-full bg-white/5 border border-white/10 self-center whitespace-nowrap">
+                            Showing <span id="visible-count" class="text-green-400 font-bold">17</span> Resources
+                        </div>
+                    </div>
+
+                    <!-- Category Filter Pills -->
+                    <div class="flex flex-wrap gap-2 items-center text-xs">
+                        <span class="text-gray-400 uppercase tracking-widest font-bold text-[10px] mr-2">Category:</span>
+                        <button class="resource-filter-btn px-4 py-1.5 rounded-full font-semibold border transition-all active bg-green-500/20 text-green-300 border-green-500/50" data-filter="all">All (17)</button>
+                        <button class="resource-filter-btn px-4 py-1.5 rounded-full font-semibold border transition-all bg-white/5 text-gray-300 border-white/10 hover:border-yellow-400/50 hover:text-white" data-filter="hoodoo">Hoodoo & Roots</button>
+                        <button class="resource-filter-btn px-4 py-1.5 rounded-full font-semibold border transition-all bg-white/5 text-gray-300 border-white/10 hover:border-purple-400/50 hover:text-white" data-filter="vodou">Vodou & Orisha</button>
+                        <button class="resource-filter-btn px-4 py-1.5 rounded-full font-semibold border transition-all bg-white/5 text-gray-300 border-white/10 hover:border-green-400/50 hover:text-white" data-filter="herbalism">Herbalism & Altars</button>
+                        <button class="resource-filter-btn px-4 py-1.5 rounded-full font-semibold border transition-all bg-white/5 text-gray-300 border-white/10 hover:border-purple-400/50 hover:text-white" data-filter="occult">Astrology & Occult</button>
+                        <button class="resource-filter-btn px-4 py-1.5 rounded-full font-semibold border transition-all bg-white/5 text-gray-300 border-white/10 hover:border-yellow-400/50 hover:text-white" data-filter="healing">Trauma & Recovery</button>
+                    </div>
+                </div>
+
+                <!-- Empty State -->
+                <div id="resource-empty-state" class="hidden text-center py-12 px-6 rounded-2xl bg-white/5 border border-white/10 mb-8">
+                    <span class="text-4xl block mb-2">🔍</span>
+                    <h4 class="text-xl magical-font font-bold text-white mb-2">No Matching Resources Found</h4>
+                    <p class="text-sm text-gray-400 max-w-md mx-auto mb-4">We couldn't find any resources matching your search. Try adjusting your query or resetting filters.</p>
+                    <button id="reset-resource-filters-btn" class="px-6 py-2 rounded-full bg-green-600/80 text-white text-xs font-bold uppercase tracking-wider hover:bg-green-500 transition-colors">Reset Filters</button>
+                </div>
+
+                <div id="spiritual-pdfs-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- PDF 1 -->
+                    <a href="https://www.esis-corner888.com/_downloads/173c11d7b185422c042daedcdc7bc320" target="_blank" data-resource-item="true" data-category="hoodoo" class="magic-card card-green resource-card group flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-center mb-3">
+                                <span class="px-3 py-1 rounded-full bg-green-500/20 text-green-400 text-xs font-semibold uppercase tracking-wider">Hoodoo Classic</span>
+                                <span class="text-xs text-gray-400">PDF Download</span>
+                            </div>
+                            <h3 class="text-xl magical-font font-bold text-white mb-2 group-hover:text-green-400 transition-colors">The Hoodoo Book of Flowers</h3>
+                            <p class="text-gray-400 text-sm font-light mb-4">By Arthur Flowers. A foundational modern text on Hoodoo tradition, roots, and ancestral spiritwork.</p>
+                        </div>
+                        <span class="text-green-400 text-sm font-bold inline-flex items-center space-x-1 group-hover:translate-x-1 transition-transform">
+                            <span>Download PDF</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+                        </span>
+                    </a>
+
+                    <!-- PDF 2 -->
+                    <a href="https://www.esis-corner888.com/_downloads/8e2980084b6662d415dc24a9ce9ffb44" target="_blank" data-resource-item="true" data-category="herbalism altars" class="magic-card card-gold resource-card group flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-center mb-3">
+                                <span class="px-3 py-1 rounded-full bg-yellow-500/20 text-yellow-400 text-xs font-semibold uppercase tracking-wider">Altar Work</span>
+                                <span class="text-xs text-gray-400">PDF Download</span>
+                            </div>
+                            <h3 class="text-xl magical-font font-bold text-white mb-2 group-hover:text-yellow-400 transition-colors">Little Book of Altar Magic</h3>
+                            <p class="text-gray-400 text-sm font-light mb-4">Practical, grounded guide for consecrating, arranging, and working with your home altars and sacred spaces.</p>
+                        </div>
+                        <span class="text-yellow-400 text-sm font-bold inline-flex items-center space-x-1 group-hover:translate-x-1 transition-transform">
+                            <span>Download PDF</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+                        </span>
+                    </a>
+
+                    <!-- PDF 3 -->
+                    <a href="https://www.esis-corner888.com/_downloads/9c217c9f21b90b4eec0dc24a60d17e62" target="_blank" data-resource-item="true" data-category="herbalism" class="magic-card card-green resource-card group flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-center mb-3">
+                                <span class="px-3 py-1 rounded-full bg-green-500/20 text-green-400 text-xs font-semibold uppercase tracking-wider">Herbalism</span>
+                                <span class="text-xs text-gray-400">PDF Download</span>
+                            </div>
+                            <h3 class="text-xl magical-font font-bold text-white mb-2 group-hover:text-green-400 transition-colors">Papa Jim’s Herbal Magic</h3>
+                            <p class="text-gray-400 text-sm font-light mb-4">A celebrated reference manual on herbs, roots, formulas, baths, and botanical workings for spiritual protection and blessing.</p>
+                        </div>
+                        <span class="text-green-400 text-sm font-bold inline-flex items-center space-x-1 group-hover:translate-x-1 transition-transform">
+                            <span>Download PDF</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+                        </span>
+                    </a>
+
+                    <!-- PDF 4 -->
+                    <a href="https://www.esis-corner888.com/_downloads/49a8e588ca4b6a8093468f9e62dac038" target="_blank" data-resource-item="true" data-category="hoodoo" class="magic-card card-purple resource-card group flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-center mb-3">
+                                <span class="px-3 py-1 rounded-full bg-purple-500/20 text-purple-400 text-xs font-semibold uppercase tracking-wider">History & Lore</span>
+                                <span class="text-xs text-gray-400">PDF Download</span>
+                            </div>
+                            <h3 class="text-xl magical-font font-bold text-white mb-2 group-hover:text-purple-400 transition-colors">Conjure in African American Society</h3>
+                            <p class="text-gray-400 text-sm font-light mb-4">By Jeffrey E. Anderson. Comprehensive historical study exploring the social and spiritual role of conjure from slavery to the present.</p>
+                        </div>
+                        <span class="text-purple-400 text-sm font-bold inline-flex items-center space-x-1 group-hover:translate-x-1 transition-transform">
+                            <span>Download PDF</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+                        </span>
+                    </a>
+
+                    <!-- PDF 5 -->
+                    <a href="https://www.esis-corner888.com/_downloads/e09b56b1b7bf9664fef1c66be437b97c" target="_blank" data-resource-item="true" data-category="vodou" class="magic-card card-purple resource-card group flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-center mb-3">
+                                <span class="px-3 py-1 rounded-full bg-purple-500/20 text-purple-400 text-xs font-semibold uppercase tracking-wider">Vodou & Orisha</span>
+                                <span class="text-xs text-gray-400">PDF Download</span>
+                            </div>
+                            <h3 class="text-xl magical-font font-bold text-white mb-2 group-hover:text-purple-400 transition-colors">Orishas, Goddesses, and Voodoo Queens</h3>
+                            <p class="text-gray-400 text-sm font-light mb-4">Honoring the divine feminine, spirits, and Lwa across African diasporic traditions with rituals, offerings, and prayers.</p>
+                        </div>
+                        <span class="text-purple-400 text-sm font-bold inline-flex items-center space-x-1 group-hover:translate-x-1 transition-transform">
+                            <span>Download PDF</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+                        </span>
+                    </a>
+
+                    <!-- PDF 6 -->
+                    <a href="https://www.esis-corner888.com/_downloads/21eadfe2f069d098597fe2c4bdca5ab8" target="_blank" data-resource-item="true" data-category="vodou" class="magic-card card-gold resource-card group flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-center mb-3">
+                                <span class="px-3 py-1 rounded-full bg-yellow-500/20 text-yellow-400 text-xs font-semibold uppercase tracking-wider">Dominican 21 Divisions</span>
+                                <span class="text-xs text-gray-400">PDF Download</span>
+                            </div>
+                            <h3 class="text-xl magical-font font-bold text-white mb-2 group-hover:text-yellow-400 transition-colors">The 21 Divisions: Dominican Voodoo</h3>
+                            <p class="text-gray-400 text-sm font-light mb-4">Deep dive into Las 21 Divisiones, the mysteries, ceremonies, colors, and ancestral spirits of Dominican Vudú.</p>
+                        </div>
+                        <span class="text-yellow-400 text-sm font-bold inline-flex items-center space-x-1 group-hover:translate-x-1 transition-transform">
+                            <span>Download PDF</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+                        </span>
+                    </a>
+
+                    <!-- PDF 7 -->
+                    <a href="https://www.esis-corner888.com/_downloads/cdbe8f24f900a0546e782b86ea222afe" target="_blank" data-resource-item="true" data-category="hoodoo" class="magic-card card-green resource-card group flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-center mb-3">
+                                <span class="px-3 py-1 rounded-full bg-green-500/20 text-green-400 text-xs font-semibold uppercase tracking-wider">Gullah-Geechee Roots</span>
+                                <span class="text-xs text-gray-400">PDF Download</span>
+                            </div>
+                            <h3 class="text-xl magical-font font-bold text-white mb-2 group-hover:text-green-400 transition-colors">Talking to the Dead</h3>
+                            <p class="text-gray-400 text-sm font-light mb-4">Religion, music, and lived ancestral memory among Gullah-Geechee women. A vital text on ancestral communion.</p>
+                        </div>
+                        <span class="text-green-400 text-sm font-bold inline-flex items-center space-x-1 group-hover:translate-x-1 transition-transform">
+                            <span>Download PDF</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+                        </span>
+                    </a>
+
+                    <!-- PDF 8 -->
+                    <a href="https://www.esis-corner888.com/_downloads/9379e9786d6e1a9b2b2c08dad11da8f6" target="_blank" data-resource-item="true" data-category="herbalism altars" class="magic-card card-gold resource-card group flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-center mb-3">
+                                <span class="px-3 py-1 rounded-full bg-yellow-500/20 text-yellow-400 text-xs font-semibold uppercase tracking-wider">Cleansing Rituals</span>
+                                <span class="text-xs text-gray-400">PDF Download</span>
+                            </div>
+                            <h3 class="text-xl magical-font font-bold text-white mb-2 group-hover:text-yellow-400 transition-colors">Egg Cleansing Guide (Limpia)</h3>
+                            <p class="text-gray-400 text-sm font-light mb-4">Step-by-step instructions on performing an authentic spiritual egg cleansing (limpia) and interpreting the readings.</p>
+                        </div>
+                        <span class="text-yellow-400 text-sm font-bold inline-flex items-center space-x-1 group-hover:translate-x-1 transition-transform">
+                            <span>Download PDF</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+                        </span>
+                    </a>
+
+                    <!-- PDF 9 -->
+                    <a href="https://www.esis-corner888.com/_downloads/444fbb5fd9db17e93a41d10fd39658c0" target="_blank" data-resource-item="true" data-category="vodou" class="magic-card card-purple resource-card group flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-center mb-3">
+                                <span class="px-3 py-1 rounded-full bg-purple-500/20 text-purple-400 text-xs font-semibold uppercase tracking-wider">Orisa Cosmology</span>
+                                <span class="text-xs text-gray-400">PDF Download</span>
+                            </div>
+                            <h3 class="text-xl magical-font font-bold text-white mb-2 group-hover:text-purple-400 transition-colors">The Way of the Orisa</h3>
+                            <p class="text-gray-400 text-sm font-light mb-4">Comprehensive guide on understanding the energies, colors, sacred nature, and paths of the Orishas.</p>
+                        </div>
+                        <span class="text-purple-400 text-sm font-bold inline-flex items-center space-x-1 group-hover:translate-x-1 transition-transform">
+                            <span>Download PDF</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+                        </span>
+                    </a>
+
+                    <!-- PDF 10 -->
+                    <a href="https://www.esis-corner888.com/_downloads/766499f379d7a9629521340d879a1f6a" target="_blank" data-resource-item="true" data-category="hoodoo" class="magic-card card-green resource-card group flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-center mb-3">
+                                <span class="px-3 py-1 rounded-full bg-green-500/20 text-green-400 text-xs font-semibold uppercase tracking-wider">Literary Conjure</span>
+                                <span class="text-xs text-gray-400">PDF Download</span>
+                            </div>
+                            <h3 class="text-xl magical-font font-bold text-white mb-2 group-hover:text-green-400 transition-colors">Conjuring Moments in African American Literature</h3>
+                            <p class="text-gray-400 text-sm font-light mb-4">By Kameelah L. Martin. Exploring women, spirit work, and Hoodoo traditions represented throughout Black literature.</p>
+                        </div>
+                        <span class="text-green-400 text-sm font-bold inline-flex items-center space-x-1 group-hover:translate-x-1 transition-transform">
+                            <span>Download PDF</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+                        </span>
+                    </a>
+
+                    <!-- PDF 11 -->
+                    <a href="https://www.esis-corner888.com/_downloads/a17ca855e194826fdf9eea03c65e04d0" target="_blank" data-resource-item="true" data-category="vodou" class="magic-card card-purple resource-card group flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-center mb-3">
+                                <span class="px-3 py-1 rounded-full bg-purple-500/20 text-purple-400 text-xs font-semibold uppercase tracking-wider">Yoruba Tradition</span>
+                                <span class="text-xs text-gray-400">PDF Download</span>
+                            </div>
+                            <h3 class="text-xl magical-font font-bold text-white mb-2 group-hover:text-purple-400 transition-colors">Women in the Yoruba Religious Sphere</h3>
+                            <p class="text-gray-400 text-sm font-light mb-4">By Oyeronke Olajubu. McGill studies devoted to international scholarship on gender, power, and sacred leadership.</p>
+                        </div>
+                        <span class="text-purple-400 text-sm font-bold inline-flex items-center space-x-1 group-hover:translate-x-1 transition-transform">
+                            <span>Download PDF</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+                        </span>
+                    </a>
+
+                    <!-- PDF 12 -->
+                    <a href="https://www.esis-corner888.com/_downloads/0013cbcb3bd211acd37ca9affee6414b" target="_blank" data-resource-item="true" data-category="occult" class="magic-card card-gold resource-card group flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-center mb-3">
+                                <span class="px-3 py-1 rounded-full bg-yellow-500/20 text-yellow-400 text-xs font-semibold uppercase tracking-wider">Astrological Magic</span>
+                                <span class="text-xs text-gray-400">PDF Download</span>
+                            </div>
+                            <h3 class="text-xl magical-font font-bold text-white mb-2 group-hover:text-yellow-400 transition-colors">Secrets of Planetary Ritual</h3>
+                            <p class="text-gray-400 text-sm font-light mb-4">By Christopher Warnock. Ceremonies, timing, and planetary talismans in traditional astrological magic.</p>
+                        </div>
+                        <span class="text-yellow-400 text-sm font-bold inline-flex items-center space-x-1 group-hover:translate-x-1 transition-transform">
+                            <span>Download PDF</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+                        </span>
+                    </a>
+
+                    <!-- PDF 13 -->
+                    <a href="https://www.esis-corner888.com/_downloads/e767b40076acec7cf37baad61cb8cf35" target="_blank" data-resource-item="true" data-category="occult" class="magic-card card-purple resource-card group flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-center mb-3">
+                                <span class="px-3 py-1 rounded-full bg-purple-500/20 text-purple-400 text-xs font-semibold uppercase tracking-wider">Occult Philosophy</span>
+                                <span class="text-xs text-gray-400">PDF Download</span>
+                            </div>
+                            <h3 class="text-xl magical-font font-bold text-white mb-2 group-hover:text-purple-400 transition-colors">The Book of Solomon's Magick</h3>
+                            <p class="text-gray-400 text-sm font-light mb-4">By Poke Runyon. Ritual magic, scrying, hermetics, and historical ceremonial traditions.</p>
+                        </div>
+                        <span class="text-purple-400 text-sm font-bold inline-flex items-center space-x-1 group-hover:translate-x-1 transition-transform">
+                            <span>Download PDF</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+                        </span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Section 3: Trauma, Healing & Self-Help Books -->
+            <div id="section-books" class="mb-20">
+                <div class="mb-10 pb-4 border-b border-white/10">
+                    <span class="text-xs uppercase tracking-widest text-yellow-400 font-bold block mb-1">Empowerment & Somatic Healing</span>
+                    <h2 class="text-3xl md:text-4xl magical-font font-bold text-white">Recommended Self-Help & Recovery Books</h2>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Book 1: The Body Keeps the Score -->
+                    <div data-resource-item="true" data-category="healing" class="magic-card card-green resource-card flex flex-col justify-between">
+                        <div>
+                            <span class="text-xs px-2.5 py-1 rounded-full bg-green-500/20 text-green-400 font-bold uppercase mb-3 inline-block">Free PDF Included</span>
+                            <h3 class="text-xl magical-font font-bold text-white mb-2">The Body Keeps the Score</h3>
+                            <p class="text-xs text-yellow-400 font-semibold mb-3">By Bessel van der Kolk, M.D.</p>
+                            <p class="text-gray-400 text-xs font-light leading-relaxed mb-6">Essential reading on trauma, somatic memory, brain science, and the path to reclaiming the body and spirit.</p>
+                        </div>
+                        <a href="https://www.esis-corner888.com/_downloads/d4c88a1a2484271b8c52ebe3121680f2" target="_blank" class="w-full py-2.5 rounded-full bg-green-900/40 text-green-400 border border-green-500/50 hover:bg-green-800/60 hover:text-white text-xs font-bold text-center transition-all">Download Free PDF &rarr;</a>
+                    </div>
+
+                    <!-- Book 2: Boundaries -->
+                    <div data-resource-item="true" data-category="healing" class="magic-card card-gold resource-card flex flex-col justify-between">
+                        <div>
+                            <span class="text-xs px-2.5 py-1 rounded-full bg-yellow-500/20 text-yellow-400 font-bold uppercase mb-3 inline-block">Core Reading</span>
+                            <h3 class="text-xl magical-font font-bold text-white mb-2">Boundaries</h3>
+                            <p class="text-xs text-yellow-400 font-semibold mb-3">By Dr. Henry Cloud & Dr. John Townsend</p>
+                            <p class="text-gray-400 text-xs font-light leading-relaxed mb-6">When to say yes, how to say no, and taking healthy control of your emotional life and personal sovereignty.</p>
+                        </div>
+                        <span class="text-xs text-gray-400 italic text-center">Highly Recommended</span>
+                    </div>
+
+                    <!-- Book 3: Healing from Hidden Abuse -->
+                    <div data-resource-item="true" data-category="healing" class="magic-card card-purple resource-card flex flex-col justify-between">
+                        <div>
+                            <span class="text-xs px-2.5 py-1 rounded-full bg-purple-500/20 text-purple-400 font-bold uppercase mb-3 inline-block">Survivor Guide</span>
+                            <h3 class="text-xl magical-font font-bold text-white mb-2">Healing from Hidden Abuse</h3>
+                            <p class="text-xs text-purple-400 font-semibold mb-3">By Shannon Thomas, LCSW</p>
+                            <p class="text-gray-400 text-xs font-light leading-relaxed mb-6">A journey through the stages of recovery from psychological, toxic, and insidious relationship abuse.</p>
+                        </div>
+                        <span class="text-xs text-gray-400 italic text-center">Highly Recommended</span>
+                    </div>
+
+                    <!-- Book 4: The Subtle Art -->
+                    <div data-resource-item="true" data-category="healing" class="magic-card card-gold resource-card flex flex-col justify-between">
+                        <div>
+                            <span class="text-xs px-2.5 py-1 rounded-full bg-yellow-500/20 text-yellow-400 font-bold uppercase mb-3 inline-block">Mindset</span>
+                            <h3 class="text-xl magical-font font-bold text-white mb-2">The Subtle Art of Not Giving a F*ck</h3>
+                            <p class="text-xs text-yellow-400 font-semibold mb-3">By Mark Manson</p>
+                            <p class="text-gray-400 text-xs font-light leading-relaxed mb-6">A counterintuitive approach to living a good life, clarifying core values, and letting go of outside expectations.</p>
+                        </div>
+                        <span class="text-xs text-gray-400 italic text-center">Highly Recommended</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 4: Mental Health Resources & Hotlines -->
+            <div class="mb-20">
+                <div class="mb-10 pb-4 border-b border-white/10">
+                    <span class="text-xs uppercase tracking-widest text-purple-400 font-bold block mb-1">Support & Guidance</span>
+                    <h2 class="text-3xl md:text-4xl magical-font font-bold text-white">Mental Health & Clinical Support Directory</h2>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <a href="https://www.mentalhealth.gov" target="_blank" class="p-6 rounded-2xl bg-[#0a0f08] border border-white/10 hover:border-green-400 transition-all group">
+                        <span class="text-2xl mb-2 block">🏛️</span>
+                        <h4 class="text-lg font-bold text-white group-hover:text-green-400 mb-1">MentalHealth.gov</h4>
+                        <p class="text-xs text-gray-400">Trusted U.S. government guidance, education, and immediate crisis support resources.</p>
+                    </a>
+
+                    <a href="https://www.nami.org" target="_blank" class="p-6 rounded-2xl bg-[#0a0f08] border border-white/10 hover:border-yellow-400 transition-all group">
+                        <span class="text-2xl mb-2 block">🤝</span>
+                        <h4 class="text-lg font-bold text-white group-hover:text-yellow-400 mb-1">NAMI</h4>
+                        <p class="text-xs text-gray-400">National Alliance on Mental Illness: grassroots advocacy, support groups, and education.</p>
+                    </a>
+
+                    <a href="https://www.samhsa.gov" target="_blank" class="p-6 rounded-2xl bg-[#0a0f08] border border-white/10 hover:border-purple-400 transition-all group">
+                        <span class="text-2xl mb-2 block">📞</span>
+                        <h4 class="text-lg font-bold text-white group-hover:text-purple-400 mb-1">SAMHSA Helpline</h4>
+                        <p class="text-xs text-gray-400">Substance Abuse and Mental Health Services Administration 24/7 free national helpline.</p>
+                    </a>
+
+                    <a href="https://www.psychologytoday.com/us" target="_blank" class="p-6 rounded-2xl bg-[#0a0f08] border border-white/10 hover:border-green-400 transition-all group">
+                        <span class="text-2xl mb-2 block">🔍</span>
+                        <h4 class="text-lg font-bold text-white group-hover:text-green-400 mb-1">Psychology Today</h4>
+                        <p class="text-xs text-gray-400">Find culturally competent, licensed therapists and counselors tailored to your specific needs.</p>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Section 5: Private Sanctuary Community Chat -->
+            <div class="p-10 md:p-14 rounded-3xl bg-gradient-to-tr from-purple-950/50 via-black to-green-950/50 border border-purple-500/40 text-center shadow-[0_0_35px_rgba(168,85,247,0.2)]">
+                <div class="max-w-2xl mx-auto">
+                    <span class="text-3xl mb-3 block">🔮</span>
+                    <h2 class="text-3xl md:text-4xl magical-font font-bold text-white mb-4 glow-text-purple">Join the Spiritual Sanctuary Private Chat</h2>
+                    <p class="text-gray-300 text-base md:text-lg mb-8 leading-relaxed font-light">
+                        Stay connected, receive regular updates, downloadable resources, channeled wisdom, and daily support in our private community chat on Geneva!
+                    </p>
+                    <a href="https://links.geneva.com/invite/fe8a08c4-f416-4148-83dc-5a5fdedec29d" target="_blank" class="inline-flex items-center space-x-3 px-10 py-4 rounded-full bg-gradient-to-r from-purple-600 via-indigo-600 to-green-600 text-white font-bold text-base hover:scale-105 transition-all shadow-[0_0_20px_rgba(168,85,247,0.6)]">
+                        <span>Join Geneva Community Chat &rarr;</span>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="py-12 border-t border-green-900/30 bg-[#080a06] text-center relative z-10">
+        <p class="text-gray-500 text-sm magical-font">&copy; 2024 - 2026 Esi's Corner. Conjured with light.</p>
+    </footer>
+
+    <script src="js/particles.js"></script>
+    <script src="js/interactions.js"></script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+backend:
+  name: git-gateway
+  branch: main
+
+# Enable local preview/testing if running decap-server
+local_backend: true
+
+publish_mode: simple
+media_folder: "img/uploads"
+public_folder: "/img/uploads"
+
+collections:
+  # 1. Journal Poems & Reflections
+  - name: "journal"
+    label: "Journal Poems & Entries"
+    label_singular: "Poem Entry"
+    folder: "content/journal"
+    create: true
+    slug: "{{id}}"
+    format: "json"
+    fields:
+      - { label: "Poem ID (slug, lowercase letters & dashes)", name: "id", widget: "string", hint: "e.g. sacred-fire, diary, the-last-one" }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Date", name: "date", widget: "string", hint: "e.g. Oct 18, 2026" }
+      - { label: "Category", name: "category", widget: "select", options: ["Ancestral Healing", "Poetry & Reflection", "Survivor Truth & Justice", "Spirituality & Conjure"] }
+      - { label: "Excerpt / Short Preview", name: "excerpt", widget: "text" }
+      - { label: "Poem Text (Stanzas)", name: "text", widget: "markdown" }
+      - { label: "Focus Chime (432Hz)", name: "soundChime", widget: "boolean", default: true }
+
+  # 2. Spiritual PDFs & Resources
+  - name: "resources"
+    label: "PDFs & Library Resources"
+    label_singular: "Resource"
+    folder: "content/resources"
+    create: true
+    slug: "{{slug}}"
+    format: "json"
+    fields:
+      - { label: "Book/Resource Title", name: "title", widget: "string" }
+      - { label: "Author", name: "author", widget: "string" }
+      - { label: "Category", name: "category", widget: "select", options: ["hoodoo", "vodou", "herbalism", "occult", "healing"] }
+      - { label: "Badge Label", name: "badge", widget: "string", hint: "e.g. Hoodoo Classic, Altar Work, Orisa Cosmology" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "PDF Download URL or Upload", name: "downloadUrl", widget: "string" }
+
+  # 3. Top Announcement Banner
+  - name: "announcements"
+    label: "Announcement Banner"
+    files:
+      - label: "Top Notification Bar"
+        name: "banner"
+        file: "content/announcement.json"
+        fields:
+          - { label: "Show Announcement Banner", name: "active", widget: "boolean", default: false }
+          - { label: "Banner Message", name: "message", widget: "string" }
+          - { label: "Button Label", name: "buttonText", widget: "string", required: false }
+          - { label: "Button Link", name: "buttonLink", widget: "string", required: false }

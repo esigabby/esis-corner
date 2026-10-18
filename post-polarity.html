@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polarity | Esi's Journal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="antialiased text-white min-h-screen relative">
+    <canvas id="magic-canvas"></canvas>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 top-0 border-b border-green-900/30 bg-[#080a06]/70 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex flex-wrap justify-between items-center gap-4">
+            <a href="index.html" class="text-3xl magical-font font-bold text-white tracking-widest glow-text-gold">Esi's Corner</a>
+            <div class="hidden md:flex flex-wrap items-center space-x-2 text-sm uppercase tracking-widest font-semibold">
+                <a href="about.html" class="nav-item">About</a>
+                <a href="journal.html" class="nav-item text-yellow-400 font-bold">Journal</a>
+                <a href="resources.html" class="nav-item">PDFs & Resources</a>
+                <a href="apps.html" class="nav-item">Apps</a>
+                <a href="marketing.html" class="nav-item">Marketing</a>
+                <a href="index.html#shop" class="nav-item">Shop</a>
+                <a href="willow.html" class="nav-item">Willow</a>
+                <a href="index.html#booking" class="px-6 py-2 ml-4 rounded-full bg-gradient-to-r from-yellow-500 via-green-600 to-purple-600 text-white hover:shadow-[0_0_20px_rgba(251,191,36,0.6)] transition-all">Book Now</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Content -->
+    <main class="relative z-10 max-w-3xl mx-auto px-6 pt-36 pb-20" data-post-id="polarity">
+        <a href="journal.html" class="text-purple-400 hover:text-purple-300 text-sm font-semibold mb-8 inline-flex items-center space-x-2">&larr; <span>Back to Journal</span></a>
+        
+        <article class="bg-black/60 backdrop-blur-md p-8 md:p-14 rounded-3xl border border-purple-500/30 shadow-[0_0_30px_rgba(168,85,247,0.15)] relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-purple-500 via-pink-500 to-yellow-500"></div>
+            
+            <span class="text-purple-400 font-bold text-xs uppercase tracking-widest mb-3 block text-center">Poetry &bull; June 9, 2020</span>
+            <h1 class="text-3xl md:text-5xl magical-font font-bold mb-10 text-white glow-text-purple text-center">Polarity</h1>
+            
+            <div class="space-y-4 text-gray-300 leading-relaxed font-light text-base md:text-lg italic text-center max-w-xl mx-auto">
+                <p>You speak in mysteries and riddles,</p>
+                <p>But I always crack the code.</p>
+                <p>You try to push me away,</p>
+                <p>But I can brace the cold.</p>
+                <p>Let me warm that cold shoulder with my embrace.</p>
+                <p>I am attracted to you.</p>
+                <p>Not just that face.</p>
+                <p>Not just the abs.</p>
+                <p>Not the hair.</p>
+                <p>I am attracted to your soul.</p>
+                <p>It's so strong and beautiful.</p>
+                <p>I know you have been wounded by love.</p>
+                <p>I understand that.</p>
+                <p>But baby my middle name is love let me heal it.</p>
+                <p>A strong man mentality means mental health fragility.</p>
+                <p>You need someone in your corner so let me stand by your side.</p>
+                <p>Yes, I know you and I are opposites.</p>
+                <p>Polar opposites even</p>
+                <p>But love that's why we are so attracted to each other.</p>
+                <p>You and I are magnets </p>
+                <p>And The universe keeps pulling us together.</p>
+                <p>We see each other in our truest forms. </p>
+                <p>So baby unlock the door,</p>
+                <p class="font-bold text-purple-400">And let me love you once more.</p>
+            </div>
+
+            <!-- Interactive Action Bar -->
+            <div class="mt-12 pt-8 border-t border-white/10 flex flex-wrap items-center justify-between gap-4">
+                <button id="like-btn" class="px-6 py-2.5 rounded-full bg-white/5 border border-white/20 hover:border-purple-400 hover:shadow-[0_0_15px_rgba(168,85,247,0.3)] transition-all flex items-center space-x-2.5 group cursor-pointer">
+                    <span id="like-heart" class="text-xl group-hover:scale-125 transition-transform">🤍</span>
+                    <span class="text-xs uppercase tracking-wider font-bold text-white">Blessing / Like</span>
+                    <span id="like-count" class="px-2 py-0.5 rounded-full bg-purple-500/20 text-purple-400 text-xs font-bold">0</span>
+                </button>
+
+                <div class="flex items-center space-x-2">
+                    <span class="text-xs uppercase tracking-wider font-semibold text-gray-400 mr-1">Share:</span>
+                    <button id="share-copy-btn" title="Copy Link" class="p-2.5 rounded-full bg-white/5 border border-white/20 hover:border-purple-400 text-gray-300 hover:text-purple-400 transition-all cursor-pointer">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+                    </button>
+                    <a id="share-twitter-btn" target="_blank" title="Share on X" class="p-2.5 rounded-full bg-white/5 border border-white/20 hover:border-purple-400 text-gray-300 hover:text-purple-400 transition-all">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                    </a>
+                    <a id="share-fb-btn" target="_blank" title="Share on Facebook" class="p-2.5 rounded-full bg-white/5 border border-white/20 hover:border-purple-400 text-gray-300 hover:text-purple-400 transition-all">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Comments Section -->
+            <section class="mt-12 pt-8 border-t border-white/10">
+                <div class="flex items-center justify-between mb-6">
+                    <h3 class="text-2xl magical-font font-bold text-white flex items-center">
+                        <span>Sanctuary Reflections</span>
+                        <span id="comments-count-badge" class="ml-2 text-sm text-purple-400 font-sans font-semibold"></span>
+                    </h3>
+                </div>
+
+                <form id="comment-form" class="mb-8 p-6 rounded-2xl bg-black/40 border border-white/10 space-y-4">
+                    <h4 class="text-sm font-semibold text-purple-400 uppercase tracking-wider">Leave a Reflection or Blessing</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <input type="text" id="comment-name" placeholder="Your Name or Initial" class="w-full px-4 py-2.5 rounded-xl bg-black/60 border border-white/15 text-white placeholder-gray-500 focus:outline-none focus:border-purple-400 text-sm">
+                        <input type="email" id="comment-email" placeholder="Your Email (kept sacred)" class="w-full px-4 py-2.5 rounded-xl bg-black/60 border border-white/15 text-white placeholder-gray-500 focus:outline-none focus:border-purple-400 text-sm">
+                    </div>
+                    <textarea id="comment-text" rows="3" required placeholder="Share your magnetic poetry reflections..." class="w-full px-4 py-2.5 rounded-xl bg-black/60 border border-white/15 text-white placeholder-gray-500 focus:outline-none focus:border-purple-400 text-sm"></textarea>
+                    <button type="submit" class="px-6 py-2.5 rounded-full bg-gradient-to-r from-purple-500 to-pink-600 text-white font-bold text-xs uppercase tracking-wider hover:shadow-[0_0_15px_rgba(168,85,247,0.4)] transition-all cursor-pointer">
+                        Post Reflection &rarr;
+                    </button>
+                </form>
+
+                <div id="comments-list" class="space-y-4"></div>
+            </section>
+        </article>
+    </main>
+
+    <footer class="py-12 border-t border-green-900/30 bg-[#080a06] text-center relative z-10">
+        <p class="text-gray-500 text-sm magical-font">&copy; 2024 - 2026 Esi's Corner. Conjured with light.</p>
+    </footer>
+
+    <script src="js/particles.js"></script>
+    <script src="js/interactions.js"></script>
+</body>
+</html>
