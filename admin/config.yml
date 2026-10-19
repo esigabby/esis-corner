@@ -2,6 +2,7 @@ backend:
   name: github
   repo: esigabby/esis-corner
   branch: main
+  site_domain: extraordinary-youtiao-ece61f.netlify.app
 
 # Enable local preview/testing if running decap-server
 local_backend: true
