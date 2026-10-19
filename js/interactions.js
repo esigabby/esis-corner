@@ -2,67 +2,15 @@
 // ESI'S CORNER - INTERACTION ENGINE (Likes, Comments, Shares, Easter Eggs)
 // =========================================================
 
-// Default Seeded Comments for Initial Authentic Atmosphere
-const DEFAULT_COMMENTS = {
-    'diary': [
-        { name: 'Nia M.', date: 'Aug 5, 2024', text: 'This speaks so deeply to the ancestral weight we carry every single day. Thank you for putting words to what so many of us feel.' },
-        { name: 'Keisha T.', date: 'Aug 6, 2024', text: 'A triple consciousness indeed. Sending you so much love and protection on your journey, Esi! 🌻✨' }
-    ],
-    'hide-and-seek': [
-        { name: 'Maya J.', date: 'Nov 5, 2024', text: 'Inner child healing is the toughest and most rewarding work. Beautiful poem.' }
-    ],
-    'death': [
-        { name: 'Cedric W.', date: 'Aug 5, 2024', text: 'The transition and the ancestors... honor to Baron Samedi and the crossroads.' }
-    ],
-    'morning': [
-        { name: 'Brianna L.', date: 'Aug 5, 2024', text: 'Letting ourselves mourn is where true rebirth starts. Needed this today.' }
-    ],
-    'loved': [
-        { name: 'Jasmine R.', date: 'Aug 5, 2024', text: 'You are worthy of the deepest, gentlest, and most sacred love. Always.' }
-    ],
-    'sick-irony': [
-        { name: 'Tasha K.', date: 'Sept 3, 2021', text: 'Character development through the hardest lessons. The carefree girl is still inside you, wiser and untamed.' }
-    ],
-    'polarity': [
-        { name: 'Darnell S.', date: 'June 10, 2020', text: 'Magnets and the universe pulling us together... powerful imagery.' }
-    ],
-    'tense': [
-        { name: 'Alicia B.', date: 'Feb 14, 2019', text: 'Past tense vs present tense... this hit right in the heart.' }
-    ],
-    'broken-pot': [
-        { name: 'Kendall P.', date: 'July 21, 2018', text: 'The orchid metaphor is stunning and so painful at the same time.' }
-    ],
-    'purple-emotions': [
-        { name: 'Alexis D.', date: 'Sept 18, 2017', text: 'From shades of blue to a sea of red... your early poetry has so much raw soul.' }
-    ],
-    'last-one': [
-        { name: 'Morgan C.', date: 'Feb 24, 2019', text: 'Loving the version we created in our mind is such a real trap. Proud of you for breaking free.' }
-    ],
-    'august-26': [
-        { name: 'Simone H.', date: 'Aug 27, 2020', text: 'Happy birthday eve reflection. The evolution is always sacred.' }
-    ]
-};
+// Real Visitor Comments & Real Likes (No fake comments or inflated counts)
+const DEFAULT_COMMENTS = {};
 
-// Base Like Counts for Initial Energy
-const BASE_LIKES = {
-    'diary': 88,
-    'hide-and-seek': 54,
-    'death': 42,
-    'morning': 39,
-    'loved': 67,
-    'sick-irony': 73,
-    'august-26': 49,
-    'polarity': 61,
-    'last-one': 58,
-    'tense': 52,
-    'broken-pot': 45,
-    'purple-emotions': 81
-};
+const BASE_LIKES = {};
 
 // --- LIKE SYSTEM ---
 function getPostLikes(postId) {
     const userLikes = JSON.parse(localStorage.getItem('esis_likes') || '{}');
-    const base = BASE_LIKES[postId] || 33;
+    const base = BASE_LIKES[postId] || 0;
     const added = userLikes[postId]?.count || 0;
     const isLiked = userLikes[postId]?.liked || false;
     return { count: base + added, isLiked };
@@ -1098,9 +1046,8 @@ function initUniversalMobileNav() {
                     <a href="about.html" class="hover:text-yellow-400 py-2 border-b border-white/5">About</a>
                     <a href="journal.html" class="hover:text-yellow-400 py-2 border-b border-white/5">Journal</a>
                     <a href="resources.html" class="hover:text-yellow-400 py-2 border-b border-white/5">PDFs & Resources</a>
-                    <a href="apps.html" class="hover:text-yellow-400 py-2 border-b border-white/5">Apps</a>
                     <a href="marketing.html" class="hover:text-yellow-400 py-2 border-b border-white/5">Marketing</a>
-                    <a href="index.html#shop" class="hover:text-yellow-400 py-2 border-b border-white/5">Shop</a>
+                    <a href="index.html#shop" class="hover:text-yellow-400 py-2 border-b border-white/5">Shop (Coming Soon)</a>
                     <a href="willow.html" class="hover:text-yellow-400 py-2 border-b border-white/5">Willow</a>
                 </div>
             </div>
@@ -1542,6 +1489,18 @@ function toggleInlinePoem(poemId) {
     }
 }
 
+// Global Dynamic Real Interaction Sync for Journal Cards
+function initRealJournalInteractions() {
+    document.querySelectorAll('[data-post-id]').forEach(el => {
+        const pid = el.getAttribute('data-post-id');
+        const countEl = el.querySelector('.real-like-count');
+        if (countEl) {
+            const likes = getPostLikes(pid);
+            countEl.innerText = likes.count;
+        }
+    });
+}
+
 // Global Instantiation
 window.addEventListener('DOMContentLoaded', () => {
     window.sacredSoundscape = new SacredSoundscape();
@@ -1550,6 +1509,7 @@ window.addEventListener('DOMContentLoaded', () => {
     initJournalSearchAndFilter();
     initResourceSearchAndFilter();
     initUniversalMobileNav();
+    initRealJournalInteractions();
 });
 
 
