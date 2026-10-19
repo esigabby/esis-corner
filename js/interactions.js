@@ -1049,7 +1049,7 @@ function initUniversalMobileNav() {
                     <a href="marketing.html" class="hover:text-yellow-400 py-2 border-b border-white/5">Marketing</a>
                     <a href="index.html#oracle" class="hover:text-yellow-400 py-2 border-b border-white/5">Magic Orb (Daily Card)</a>
                     <a href="index.html#shop" class="hover:text-yellow-400 py-2 border-b border-white/5">Shop (Coming Soon)</a>
-                    <a href="willow.html" class="hover:text-yellow-400 py-2 border-b border-white/5">Willow</a>
+                    <a href="willow.html" class="hover:text-yellow-400 py-2 border-b border-white/5">Willow (AI Companion)</a>
                 </div>
             </div>
             <div class="pt-6 border-t border-white/10">
@@ -1097,6 +1097,8 @@ const SANCTUARY_POEMS = [
         color: 'yellow',
         pageUrl: 'post-diary.html',
         content: `The feeling of double consciousness is draining. I would like to argue that black women have a triple consciousness. We see our fathers and brothers die, we see our mothers and sisters carrying their crosses along with the crosses of our fallen family. We harbor the anger of past generations of our wombs.
+
+They used to deny our ancestors literacy; now they suppress our education through sanitized curriculums, whitewashed history, and systemic gatekeeping. We encourage people to bear their own demons, but when we look closely in the mirror, what have you done to remove the poison that society poured into our own vessels?
 
 We are asked to be strong when we want to be soft. We are asked to lead when we want to rest. We are expected to swallow our rage so the room feels comfortable, while our spirits scream for justice and peace.
 
@@ -1663,6 +1665,20 @@ async function loadSanctuaryAnnouncement() {
             }
         }
     } catch(e) {}
+}
+
+// Sanctuary Waitlist Engine
+function joinWaitlist() {
+    const input = document.getElementById('waitlist-email');
+    const msg = document.getElementById('waitlist-success');
+    if (!input || !input.value) return;
+    const email = input.value.trim();
+    try {
+        localStorage.setItem('sanctuary_waitlist_email', email);
+    } catch(e) {}
+    if (msg) msg.classList.remove('hidden');
+    input.value = '';
+    showToast('✨ Thank you! You have joined the sanctuary waitlist.');
 }
 
 // Global Instantiation
