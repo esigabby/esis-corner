@@ -1,6 +1,6 @@
 {
-  "active": false,
-  "message": "Welcome to Esi's Corner! New readings & services now open on Setmore.",
-  "buttonText": "Book Now",
-  "buttonLink": "https://esicreations.setmore.com/services"
+  "active": true,
+  "message": "Welcome to Esi's Corner! Books are closed but learning and community isn't!",
+  "buttonText": "",
+  "buttonLink": ""
 }
