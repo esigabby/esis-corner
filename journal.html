@@ -13,17 +13,22 @@
     
     <!-- Navigation -->
     <nav class="fixed w-full z-50 top-0 border-b border-green-900/30 bg-[#080a06]/70 backdrop-blur-md">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex flex-wrap justify-between items-center gap-4">
-            <a href="index.html" class="text-3xl magical-font font-bold text-white tracking-widest glow-text-gold">Esi's Corner</a>
-            <div class="hidden md:flex flex-wrap items-center space-x-2 text-sm uppercase tracking-widest font-semibold">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+            <a href="index.html" class="text-3xl magical-font font-bold text-white tracking-widest glow-text-gold shrink-0">Esi's Corner</a>
+            <div class="hidden lg:flex items-center space-x-3 text-xs uppercase tracking-widest font-semibold shrink-0">
                 <a href="about.html" class="nav-item">About</a>
                 <a href="journal.html" class="nav-item text-yellow-400 font-bold">Journal</a>
                 <a href="resources.html" class="nav-item">PDFs & Resources</a>
                 <a href="marketing.html" class="nav-item">Marketing</a>
+                <a href="index.html#oracle" class="nav-item">Magic Orb</a>
                 <a href="index.html#shop" class="nav-item">Shop</a>
                 <a href="willow.html" class="nav-item">Willow</a>
-                <a href="index.html#booking" class="px-6 py-2 ml-4 rounded-full bg-gradient-to-r from-yellow-500 via-green-600 to-purple-600 text-white hover:shadow-[0_0_20px_rgba(251,191,36,0.6)] transition-all">Book Now</a>
+                <a href="index.html#booking" class="px-5 py-2 ml-2 rounded-full bg-gradient-to-r from-yellow-500 via-green-600 to-purple-600 text-white hover:shadow-[0_0_20px_rgba(251,191,36,0.6)] transition-all">Book Now</a>
             </div>
+            <!-- Mobile Menu Toggle Button -->
+            <button id="mobile-menu-toggle" aria-label="Open Mobile Menu" class="lg:hidden p-2 rounded-lg bg-white/5 border border-white/10 text-yellow-400 hover:text-white transition-all">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </button>
         </div>
     </nav>
 

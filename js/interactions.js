@@ -1017,12 +1017,12 @@ function initUniversalMobileNav() {
     const nav = document.querySelector('nav');
     if (!nav) return;
 
-    // Add Hamburger Button if not present
+    // Find Hamburger Button or create if missing
     let menuBtn = document.getElementById('mobile-menu-toggle');
     if (!menuBtn) {
         menuBtn = document.createElement('button');
         menuBtn.id = 'mobile-menu-toggle';
-        menuBtn.className = 'md:hidden p-2 rounded-lg bg-white/5 border border-white/10 text-yellow-400 hover:text-white transition-all';
+        menuBtn.className = 'lg:hidden p-2 rounded-lg bg-white/5 border border-white/10 text-yellow-400 hover:text-white transition-all';
         menuBtn.innerHTML = `
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
         `;
@@ -1047,6 +1047,7 @@ function initUniversalMobileNav() {
                     <a href="journal.html" class="hover:text-yellow-400 py-2 border-b border-white/5">Journal</a>
                     <a href="resources.html" class="hover:text-yellow-400 py-2 border-b border-white/5">PDFs & Resources</a>
                     <a href="marketing.html" class="hover:text-yellow-400 py-2 border-b border-white/5">Marketing</a>
+                    <a href="index.html#oracle" class="hover:text-yellow-400 py-2 border-b border-white/5">Magic Orb (Daily Card)</a>
                     <a href="index.html#shop" class="hover:text-yellow-400 py-2 border-b border-white/5">Shop (Coming Soon)</a>
                     <a href="willow.html" class="hover:text-yellow-400 py-2 border-b border-white/5">Willow</a>
                 </div>
@@ -1057,7 +1058,8 @@ function initUniversalMobileNav() {
         `;
         document.body.appendChild(drawer);
 
-        menuBtn.addEventListener('click', () => {
+        menuBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
             drawer.classList.remove('closed');
             drawer.classList.add('open');
         });
@@ -1065,6 +1067,20 @@ function initUniversalMobileNav() {
         drawer.querySelector('#close-mobile-drawer').addEventListener('click', () => {
             drawer.classList.remove('open');
             drawer.classList.add('closed');
+        });
+
+        drawer.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                drawer.classList.remove('open');
+                drawer.classList.add('closed');
+            });
+        });
+
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && drawer.classList.contains('open')) {
+                drawer.classList.remove('open');
+                drawer.classList.add('closed');
+            }
         });
     }
 }
@@ -1501,32 +1517,149 @@ function initRealJournalInteractions() {
     });
 }
 
-// Announcement Banner Auto-Loader from content/announcement.json
+// 12 Authentic Conjure Cards for Magic Orb
+const CONJURE_ORACLE_CARDS = [
+    {
+        symbol: "👑",
+        name: "High John the Conqueror",
+        sub: "Unconquerable Will & Mastery",
+        meaning: "No obstacle can hold you down. Command your power, conquer self-doubt, and move forward with the unstoppable authority of your bloodline."
+    },
+    {
+        symbol: "🚪",
+        name: "The Crossroads (Papa Legba)",
+        sub: "Sacred Choice & Open Roads",
+        meaning: "You stand at the sacred crossroads. Honor the threshold, ask for the way to be cleared, and trust that a golden door is opening where another has shut."
+    },
+    {
+        symbol: "💧",
+        name: "Florida Water & Camphor",
+        sub: "Spiritual Cleansing & Cool Head",
+        meaning: "Wash away psychic fatigue, heavy projections, and mental clutter. Clear your aura, cool your crown, and allow fresh spirit energy to enter."
+    },
+    {
+        symbol: "🧲",
+        name: "The Consecrated Lodestone",
+        sub: "Irresistible Magnetic Draw",
+        meaning: "Feed what you desire with gratitude and focused intention. Prosperity, rightful connections, and genuine blessings are being pulled directly toward you."
+    },
+    {
+        symbol: "🌿",
+        name: "Five Finger Grass",
+        sub: "Blessing All Five Hands",
+        meaning: "Whatever your hands touch shall prosper. Health, wealth, wisdom, love, and spiritual sovereignty are taking root in your life."
+    },
+    {
+        symbol: "🧱",
+        name: "Red Brick Dust",
+        sub: "Impenetrable Boundary",
+        meaning: "Draw your line across the threshold. Malice, unwanted intrusion, and energetic vampires stop dead at your boundary. Your sacred space is defended."
+    },
+    {
+        symbol: "🪙",
+        name: "The Silver Dime & Cemetery Soil",
+        sub: "Ancestral Pact & Protection",
+        meaning: "Honor the elevated ancestors who fought and survived so you could live. Pay your respects with silver and sincerity; they are shielding your back."
+    },
+    {
+        symbol: "🕯️",
+        name: "The Seven-Day Altar Novena",
+        sub: "Consecrated Devotion & Focus",
+        meaning: "Keep the fire steadily burning on your altar. Your petitions have been heard; let the wax melt in divine timing without rushing the magic."
+    },
+    {
+        symbol: "👝",
+        name: "The Mojo Bag (Conjure Hand)",
+        sub: "Preserved Power & Secret Medicine",
+        meaning: "Keep your sacred work quiet and close to your chest. What is incubated in silence gathers ten times the strength of what is prematurely spoken."
+    },
+    {
+        symbol: "🧿",
+        name: "Indigo Bluing & Sea Salt",
+        sub: "Evil Eye Banishing & Shield",
+        meaning: "Dissolve envy, malice, and watchful eyes into the deep blue water. You are rendered completely invisible to negative spirits and psychic harm."
+    },
+    {
+        symbol: "🔔",
+        name: "The Bitter Herb & Agogo Bell",
+        sub: "Cut & Clear / Spiritual Awakening",
+        meaning: "Ring the bell and sever the decaying energetic ties. Bitter medicine purges what sugar cannot fix, opening your heart for sweet liberation."
+    },
+    {
+        symbol: "🍯",
+        name: "Queen Elizabeth Root & Honey Jar",
+        sub: "Divine Favor & Sweet Victory",
+        meaning: "Sweeten the atmosphere, command dignity, and claim sovereign favor in every room you enter. Honey draws true allies and softens hard hearts."
+    }
+];
+
+// Interactive Ancestral Magic Orb Engine
+function gazeIntoOrb() {
+    const orbContainer = document.getElementById('magic-orb-container');
+    const idleContent = document.getElementById('orb-idle-content');
+    const revealedContent = document.getElementById('orb-revealed-content');
+    const btnText = document.getElementById('orb-btn-text');
+
+    if (window.sacredSoundscape && typeof window.sacredSoundscape.playSingingBowl === 'function') {
+        window.sacredSoundscape.playSingingBowl();
+    }
+
+    if (orbContainer) {
+        orbContainer.classList.add('animate-pulse');
+        setTimeout(() => orbContainer.classList.remove('animate-pulse'), 600);
+    }
+
+    const card = CONJURE_ORACLE_CARDS[Math.floor(Math.random() * CONJURE_ORACLE_CARDS.length)];
+
+    if (idleContent) {
+        idleContent.style.opacity = '0';
+        idleContent.style.pointerEvents = 'none';
+    }
+
+    setTimeout(() => {
+        const sym = document.getElementById('orb-card-symbol');
+        const name = document.getElementById('orb-card-name');
+        const sub = document.getElementById('orb-card-sub');
+        const meaning = document.getElementById('orb-card-meaning');
+
+        if (sym) sym.innerText = card.symbol;
+        if (name) name.innerText = card.name;
+        if (sub) sub.innerText = card.sub;
+        if (meaning) meaning.innerText = `"${card.meaning}"`;
+
+        if (revealedContent) {
+            revealedContent.style.opacity = '1';
+            revealedContent.style.pointerEvents = 'auto';
+        }
+
+        if (btnText) {
+            btnText.innerText = 'Gaze Again (Draw Another Card)';
+        }
+
+        showToast(`🔮 The Orb reveals: ${card.name}`);
+    }, 300);
+}
+
+// Stable Announcement Banner Loader (Zero Menu Movement)
 async function loadSanctuaryAnnouncement() {
     try {
         const res = await fetch('content/announcement.json');
         if (!res.ok) return;
         const data = await res.json();
         if (data && data.active && data.message) {
-            let banner = document.getElementById('sanctuary-announcement-bar');
-            if (!banner) {
-                banner = document.createElement('div');
+            const nav = document.querySelector('nav');
+            if (nav && !document.getElementById('sanctuary-announcement-bar')) {
+                const banner = document.createElement('div');
                 banner.id = 'sanctuary-announcement-bar';
-                banner.className = 'w-full py-2.5 px-4 bg-gradient-to-r from-yellow-500 via-amber-400 to-yellow-500 text-black text-center text-xs md:text-sm font-bold tracking-wide flex items-center justify-center space-x-3 shadow-lg relative z-50';
+                banner.className = 'w-full py-2 px-4 bg-gradient-to-r from-yellow-500 via-amber-400 to-yellow-500 text-black text-center text-xs md:text-sm font-bold tracking-wide flex items-center justify-center space-x-2 border-b border-black/15 shadow-sm';
                 
                 let btnHtml = '';
                 if (data.buttonText && data.buttonLink) {
-                    btnHtml = `<a href="${data.buttonLink}" class="ml-2 px-3 py-1 rounded-full bg-black text-yellow-300 text-xs font-bold hover:bg-neutral-900 transition-colors">${data.buttonText} &rarr;</a>`;
+                    btnHtml = `<a href="${data.buttonLink}" class="ml-2 px-2.5 py-0.5 rounded-full bg-black text-yellow-300 text-xs font-bold hover:bg-neutral-900 transition-colors">${data.buttonText} &rarr;</a>`;
                 }
                 
                 banner.innerHTML = `<span>✨ ${data.message}</span>${btnHtml}`;
-                document.body.prepend(banner);
-                
-                const nav = document.querySelector('nav.fixed');
-                if (nav) {
-                    nav.style.top = banner.offsetHeight + 'px';
-                    document.body.style.paddingTop = banner.offsetHeight + 'px';
-                }
+                nav.prepend(banner);
             }
         }
     } catch(e) {}
