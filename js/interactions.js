@@ -1501,6 +1501,37 @@ function initRealJournalInteractions() {
     });
 }
 
+// Announcement Banner Auto-Loader from content/announcement.json
+async function loadSanctuaryAnnouncement() {
+    try {
+        const res = await fetch('content/announcement.json');
+        if (!res.ok) return;
+        const data = await res.json();
+        if (data && data.active && data.message) {
+            let banner = document.getElementById('sanctuary-announcement-bar');
+            if (!banner) {
+                banner = document.createElement('div');
+                banner.id = 'sanctuary-announcement-bar';
+                banner.className = 'w-full py-2.5 px-4 bg-gradient-to-r from-yellow-500 via-amber-400 to-yellow-500 text-black text-center text-xs md:text-sm font-bold tracking-wide flex items-center justify-center space-x-3 shadow-lg relative z-50';
+                
+                let btnHtml = '';
+                if (data.buttonText && data.buttonLink) {
+                    btnHtml = `<a href="${data.buttonLink}" class="ml-2 px-3 py-1 rounded-full bg-black text-yellow-300 text-xs font-bold hover:bg-neutral-900 transition-colors">${data.buttonText} &rarr;</a>`;
+                }
+                
+                banner.innerHTML = `<span>✨ ${data.message}</span>${btnHtml}`;
+                document.body.prepend(banner);
+                
+                const nav = document.querySelector('nav.fixed');
+                if (nav) {
+                    nav.style.top = banner.offsetHeight + 'px';
+                    document.body.style.paddingTop = banner.offsetHeight + 'px';
+                }
+            }
+        }
+    } catch(e) {}
+}
+
 // Global Instantiation
 window.addEventListener('DOMContentLoaded', () => {
     window.sacredSoundscape = new SacredSoundscape();
@@ -1510,6 +1541,7 @@ window.addEventListener('DOMContentLoaded', () => {
     initResourceSearchAndFilter();
     initUniversalMobileNav();
     initRealJournalInteractions();
+    loadSanctuaryAnnouncement();
 });
 
 
