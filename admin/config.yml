@@ -1,5 +1,6 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: esigabby/esis-corner
   branch: main
 
 # Enable local preview/testing if running decap-server
