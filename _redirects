@@ -1,2 +1,4 @@
-﻿/apps        /          301
-/apps.html   /          301
+﻿/apps        /    301!
+/apps/       /    301!
+/apps.html   /    301!
+/apps/*      /    301!
